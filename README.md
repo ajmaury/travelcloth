@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <p align="center"><a href="https://docs.google.com/spreadsheets/d/10W31p2Vcd0jOxa6pWxibEGVr1fPzakDS3ctT-EirAUc/edit?usp=sharing" target="_blank">Role-based-laravel-admin-dashboard-version-8.0</a></p>
 
 ## About Laravel Template Admin Panel
@@ -69,3 +70,6 @@ To see the progress report of this project, [Project report](https://docs.google
 8. Now open your browser and go to your domain and ENJOY.
     
     
+=======
+# travelcloth
+>>>>>>> f38498aade7db6fe5ad98dc7f91893c1cf1e66d9
