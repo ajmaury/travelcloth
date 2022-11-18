@@ -1,7 +1,7 @@
 @extends('admin.layouts.master')
 
 @section('page_title')
-    {{__('permission.index.title')}}
+    Permission
 @endsection
 
 @section('content')
@@ -10,20 +10,20 @@
 		<div class="card breadcrumb-card">
 			<div class="row justify-content-between align-content-between" style="height: 100%;">
 				<div class="col-md-6">
-					<h3 class="page-title">{{__('permission.index.title')}}</h3>
+					<h3 class="page-title">@yield('page_title')</h3>
 					<ul class="breadcrumb">
 						<li class="breadcrumb-item">
 							<a href="{{ route('dashboard') }}">Dashboard</a>
 						</li>
 						<li class="breadcrumb-item active-breadcrumb">
-							<a href="{{ route('permissions.index') }}">{{ __('permission.index.title') }}</a>
+							<a href="{{ route('permissions.index') }}">@yield('page_title')</a>
 						</li>
 					</ul>
 				</div>
 				@if (Gate::check('permission-create'))
 					<div class="col-md-3">
 						<div class="create-btn pull-right">
-							<a href="{{ route('permissions.create') }}" class="btn custom-create-btn">{{ __('permission.form.add-button') }}</a>
+							<a href="{{ route('permissions.create') }}" class="btn custom-create-btn">Add</a>
 						</div>
 					</div>
 				@endif
@@ -39,11 +39,11 @@
 					<table class="table table-report -mt-2" id="permission_table">
 						<thead>
 							<tr>
-								<th>{{__('default.table.sl')}}</th>
-								<th>{{__('default.table.name')}}</th>
+								<th>SL</th>
+								<th>Name</th>
 
 								@if(Gate::check('permission-edit') || Gate::check('permission-delete'))
-									<th>{{__('default.table.action')}}</th>
+									<th>Action</th>
 								@endif 
 							</tr>
 						</thead>
@@ -57,13 +57,13 @@
 									<td>
 										@if(Gate::check('permission-edit'))
 											<a href="{{route('permissions.edit', $permission->id)}}" class="custom-edit-btn mr-1">
-												<i class="fe fe-pencil mr-1"></i>{{__('default.form.edit-button')}}
+												<i class="fe fe-pencil mr-1"></i>Edit
 											</a>
 										@endif 
 
 										@if( Gate::check('permission-delete'))
 											<button class="custom-delete-btn remove-permission" data-id="{{ $permission->id }}" data-action="/admin/permissions/destroy">
-												<i class="fe fe-trash mr-1"></i>{{__('default.form.delete-button')}}
+												<i class="fe fe-trash mr-1"></i>Delete
 											</button>
 										@endif 
 									</td>

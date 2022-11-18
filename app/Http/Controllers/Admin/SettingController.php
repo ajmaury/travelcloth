@@ -9,7 +9,6 @@ use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use Illuminate\Support\Facades\Gate;
 use App\Models\Setting;
-use App\Models\Currency;
 use DataTables;
 use Brian2694\Toastr\Facades\Toastr;
 
@@ -33,8 +32,7 @@ class SettingController extends Controller
 	public function edit()
 	{
         $setting = Setting::find(1);
-        $currencies = Currency::where('status',1)->get();
-		return view('admin.settings.edit',compact('setting','currencies'));
+		return view('admin.settings.edit',compact('setting'));
 	}
 
 	public function update(Request $request, $id=1)
@@ -48,7 +46,6 @@ class SettingController extends Controller
             'meta_title'                => 'nullable|string',
             'meta_description'          => 'nullable|string',
             'meta_tag'                  => 'nullable|string',
-            'currency'                  => 'nullable|string',
             'address'                   => 'nullable|string',
             'phone'                     => 'nullable|string',
             'email'                     => 'nullable|string',
@@ -74,7 +71,7 @@ class SettingController extends Controller
 
         try {
 			$setting->update($input);
-            Toastr::success(__('setting.message.update.success'));
+            Toastr::success('Setting Update Successfully');
 		    return redirect()->route('website-setting.edit');
 		} catch (Exception $e) {
             Toastr::success(__('setting.message.update.error'));

@@ -58,7 +58,7 @@ class CMSPageController extends Controller
                 ->addColumn('action', function($row){
 					if (Gate::check('cmspage-edit')) {
                         $edit = '<a href="'.route('cmspages.edit', $row->id).'" class="custom-edit-btn mr-1">
-                                    <i class="fe fe-pencil"></i> '.__('default.table.edit').'
+                                    <i class="fe fe-pencil"></i> '.__('Edit').'
                                 </a>';
                     }else{
                         $edit = '';
@@ -66,7 +66,7 @@ class CMSPageController extends Controller
 
                     if (Gate::check('cmspage-delete')) {
                         $delete = '<button class="custom-delete-btn remove-cmspage" data-id="'.$row->id.'" data-action="'.route('cmspages.destroy').'">
-										<i class="fe fe-trash"></i> '.__('default.table.delete').'
+										<i class="fe fe-trash"></i> '.__('Delete').'
 									</button>';
                     }else{
                         $delete = '';

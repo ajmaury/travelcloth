@@ -13,20 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-Route::get('setlocale/{locale}', function ($lang) {
-	\Session::put('locale', $lang);
-	return redirect()->back();
-})->name('setlocale');
-
-
 // Frontend Routes
 Route::get('/', 					[App\Http\Controllers\Frontend\HomeController::class, 'index'])->name('home');
 
 
 
-
-Route::group(['middleware' => 'language'], function () {
 
 	// Admin Routes
 	Route::prefix('admin')->group(function () {
@@ -135,4 +126,3 @@ Route::group(['middleware' => 'language'], function () {
 		});
 	});
 
-});

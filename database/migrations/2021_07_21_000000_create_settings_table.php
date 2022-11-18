@@ -26,8 +26,6 @@ class CreateSettingsTable extends Migration
                 $table->string('meta_description')->nullable();
                 $table->string('meta_tag')->nullable();
     
-                $table->foreignId('currency_id')->nullable()->constrained()->onDelete('set null');
-    
                 $table->text('address')->nullable();
                 $table->string('phone')->nullable();
                 $table->string('email')->nullable();

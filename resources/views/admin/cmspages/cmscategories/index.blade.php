@@ -1,7 +1,7 @@
 @extends('admin.layouts.master')
 
 @section('page_title')
-    {{__('cmscategory.index.title')}}
+    CMS Category
 @endsection
 
 @push('css')
@@ -18,20 +18,20 @@
 		<div class="card breadcrumb-card">
 			<div class="row justify-content-between align-content-between" style="height: 100%;">
 				<div class="col-md-6">
-					<h3 class="page-title">{{__('cmscategory.index.title')}}</h3>
+					<h3 class="page-title">@yield('page_title')</h3>
 					<ul class="breadcrumb">
 						<li class="breadcrumb-item">
 							<a href="{{ route('dashboard') }}">Dashboard</a>
 						</li>
 						<li class="breadcrumb-item active-breadcrumb">
-							<a href="{{ route('cmscategories.index') }}">{{ __('cmscategory.index.title') }}</a>
+							<a href="{{ route('cmscategories.index') }}">@yield('page_title')</a>
 						</li>
 					</ul>
 				</div>
 				@if (Gate::check('cmscategory-create'))
 					<div class="col-md-3">
 						<div class="create-btn pull-right">
-							<a href="{{ route('cmscategories.create') }}" class="btn custom-create-btn">{{ __('cmscategory.form.add-button') }}</a>
+							<a href="{{ route('cmscategories.create') }}" class="btn custom-create-btn">Add</a>
 						</div>
 					</div>
 				@endif
@@ -47,13 +47,13 @@
 					<table class="table table-hover table-center mb-0" id="table">
 						<thead>
 							<tr>
-								<th class="">{{__('default.table.sl')}}</th>
-								<th class="">{{__('default.table.name')}}</th>
-								<th class="">{{__('default.table.slug')}}</th>
-								<th class="">{{__('default.table.status')}}</th>
+								<th class="">Sl</th>
+								<th class="">Name</th>
+								<th class="">Slug</th>
+								<th class="">Status</th>
 
 								@if(Gate::check('cmscategory-edit') || Gate::check('cmscategory-delete'))
-									<th class="">{{__('default.table.action')}}</th>
+									<th class="">Action</th>
 								@endif 
 							</tr>
 						</thead>

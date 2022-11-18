@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 @section('page_title')
-    {{__('filemanager.index.title')}}
+    File Manager
 @endsection
 
 @push('css')
@@ -26,7 +26,7 @@
 		    	<div class="col-md-6 col-sm-12">
 		    		<h2 class="card-title">
 				        <i data-feather="file" class="feather-icon"></i>
-				        {{__('filemanager.index.title')}}
+				        @yield('page_title')
 				    </h2>
 		    	</div>
 		    	<div class="col-md-6 col-sm-12">

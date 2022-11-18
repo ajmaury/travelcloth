@@ -25,7 +25,6 @@ class Setting extends Model
         'meta_title',
         'meta_description',
         'meta_tag',
-        'currency_id',
         'address',
         'phone',
         'email',
@@ -36,9 +35,6 @@ class Setting extends Model
         'github',
     ];
 
-    public function currency()
-    {
-        return $this->belongsTo(currency::class, 'currency_id');
-    }
+   
 
 }

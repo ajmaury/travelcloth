@@ -1,7 +1,7 @@
 @extends('admin.layouts.master')
 
 @section('page_title')
-    {{__('user.profile.title')}} - {{Auth::user()->name}}
+    Profile - {{Auth::user()->name}}
 @endsection
 
 @section('content')
@@ -20,7 +20,7 @@
 			    	<div class="col-md-3">
 						<div class="pull-right">
 							<button type="submit" class="btn custom-create-btn ">
-								{{__('default.form.update-button')}}
+								Update
 							</button>
 						</div>  		
 			    	</div>
@@ -32,21 +32,21 @@
 
 					<div class="col-xs-12 col-sm-12 col-md-12">
 						<div class="form-group">
-							<label for="name">{{__('default.form.name')}}:</label>
+							<label for="name">Name:</label>
 							<input type="text" class="form-control" disabled readonly value="{{Auth::user()->name}}">
 						</div>
 					</div>
 
 					<div class="col-xs-12 col-sm-12 col-md-12">
 						<div class="form-group">
-							<label for="email">{{__('default.form.email')}}:</label>
+							<label for="email">Email:</label>
 							<input type="email" class="form-control" disabled readonly value="{{Auth::user()->email}}">
 						</div>
 					</div>
 
 					<div class="col-md-6">
 						<div class="form-group @error('password') has-error @enderror">
-							<label for="password">{{__('default.form.password')}}:</label>
+							<label for="password">Password:</label>
 							<input type="password" id="password" name="password" class="form-control @error('password') form-control-error @enderror" placeholder="Enter Password">
 
 							@error('password')
@@ -57,7 +57,7 @@
 
 					<div class="col-md-6">
 						<div class="form-group @error('confirm-password') has-error @enderror">
-							<label for="confirm-password">{{__('default.form.confirm-password')}}:</label>
+							<label for="confirm-password">Confirm Password:</label>
 							<input type="password" id="confirm-password" name="confirm-password" class="form-control" placeholder="Enter Confirm Passowrd">
 
 							@error('confirm-password')

@@ -1,6 +1,6 @@
 @extends('admin.layouts.master')
 @section('page_title')
-    {{__('role.index.title')}}
+    Role
 @endsection
 @section('content')
 	<!-- Page Header -->
@@ -8,20 +8,20 @@
 		<div class="card breadcrumb-card">
 			<div class="row justify-content-between align-content-between" style="height: 100%;">
 				<div class="col-md-6">
-					<h3 class="page-title">{{__('role.index.title')}}</h3>
+					<h3 class="page-title">@yield('page_title')</h3>
 					<ul class="breadcrumb">
 						<li class="breadcrumb-item">
 							<a href="{{ route('dashboard') }}">Dashboard</a>
 						</li>
 						<li class="breadcrumb-item active-breadcrumb">
-							<a href="{{ route('roles.index') }}">{{ __('role.index.title') }}</a>
+							<a href="{{ route('roles.index') }}">@yield('page_title')</a>
 						</li>
 					</ul>
 				</div>
 				@if (Gate::check('role-create'))
 					<div class="col-md-3">
 						<div class="create-btn pull-right">
-							<a href="{{ route('roles.create') }}" class="btn custom-create-btn">{{ __('role.form.add-button') }}</a>
+							<a href="{{ route('roles.create') }}" class="btn custom-create-btn">Add</a>
 						</div>
 					</div>
 				@endif
@@ -37,12 +37,12 @@
 					<table class="table table-report" id="role_table">
 						<thead>
 							<tr>
-								<th>{{__('default.table.sl')}}</th>
-								<th>{{__('default.table.name')}}</th>
-								<th>{{__('default.table.code')}}</th>
+								<th>SL</th>
+								<th>Name</th>
+								<th>Code</th>
 
 								@if(Gate::check('role-edit') || Gate::check('role-delete'))
-									<th>{{__('default.table.action')}}</th>
+									<th>Action</th>
 								@endif 
 							</tr>
 						</thead>
@@ -58,7 +58,7 @@
 										@if(Gate::check('role-edit'))
 											<a href="{{route('roles.edit', $role->id)}}" class="custom-edit-btn mr-1">
 												<i class="fe fe-pencil"></i>
-													{{__('default.form.edit-button')}}
+													Edit
 											</a>
 										@endif 
 
@@ -66,7 +66,7 @@
 											<span class="flex justify-center items-center">
 												<button class="custom-delete-btn remove-role" data-id="{{ $role->id }}" data-action="/admin/roles/destroy">
 													<i class="fe fe-trash"></i>
-													{{__('default.form.delete-button')}}
+													Delete
 												</button>
 											</span>
 										@endif 

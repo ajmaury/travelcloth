@@ -84,7 +84,7 @@ class RoleController extends Controller
             ]);
 			$role->syncPermissions($request->input('permission'));
 
-            Toastr::success(__('role.message.store.success'));
+            Toastr::success('Created Successfully');
 		    return redirect()->route('roles.index');
 		} catch (Exception $e) {
             Toastr::error(__('role.message.store.error'));
@@ -125,7 +125,7 @@ class RoleController extends Controller
 			$role->save();
 			$role->syncPermissions($request->input('permission'));
 
-            Toastr::success(__('role.message.update.success'));
+            Toastr::success('Updated Successfully');
 		    return redirect()->route('roles.index');
 		} catch (Exception $e) {
             Toastr::error(__('role.message.update.error'));
@@ -146,7 +146,7 @@ class RoleController extends Controller
 			$getrole = Role::find($id);
 			try {
 				Role::find($id)->delete();
-				return back()->with(Toastr::error(__('role.message.destroy.success')));
+				return back()->with(Toastr::error('Destroy Successfully'));
 			} catch (Exception $e) {
 				$error_msg = Toastr::error(__('user.message.destroy.error'));
 				return redirect()->route('roles.index')->with($error_msg);

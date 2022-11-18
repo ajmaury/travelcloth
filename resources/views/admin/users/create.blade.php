@@ -1,7 +1,7 @@
 @extends('admin.layouts.master')
 
 @section('page_title')
-    {{ __('user.create.title') }}
+    User
 @endsection
 
 @push('css')
@@ -21,19 +21,19 @@
             <div class="card breadcrumb-card">
                 <div class="row justify-content-between align-content-between" style="height: 100%;">
                     <div class="col-md-6">
-                        <h3 class="page-title">{{__('user.index.title')}}</h3>
+                        <h3 class="page-title">@yield('page_title')</h3>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
                             <li class="breadcrumb-item"><a
-                                    href="{{ route('users.index') }}">{{ __('user.index.title') }}</a></li>
+                                    href="{{ route('users.index') }}">@yield('page_title')</a></li>
                             <li class="breadcrumb-item active-breadcrumb"><a
-                                    href="{{ route('users.create') }}">{{ __('user.create.title') }}</a></li>
+                                    href="{{ route('users.create') }}">@yield('page_title')</a></li>
                         </ul>
                     </div>
                     <div class="col-md-3">
                         <div class="create-btn pull-right">
                             <button type="submit"
-                                class="btn custom-create-btn">{{ __('default.form.save-button') }}</button>
+                                class="btn custom-create-btn">Save</button>
                         </div>
                     </div>
                 </div>
@@ -71,7 +71,7 @@
 
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="name" class="required">{{ __('default.form.name') }}:</label>
+                                <label for="name" class="required">Name:</label>
                                 <input type="text" name="name" id="name" class="form-control @error('name') form-control-error @enderror" required="required" value="{{ old('name') }}">
 
                                 @error('name')
@@ -81,7 +81,7 @@
 
 
                             <div class="form-group">
-                                <label for="mobile" class="required">{{ __('default.form.mobile') }}:</label>
+                                <label for="mobile" class="required">Mobile:</label>
                                 <input type="number" name="mobile" id="mobile" class="form-control @error('mobile') form-control-error @enderror"  required="required" value="{{ old('mobile') }}">
 
                                 @error('mobile')
@@ -100,7 +100,7 @@
 
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="email" class="required">{{ __('default.form.email') }}:</label>
+                                <label for="email" class="required">Email:</label>
                                 <input type="email" name="email" id="email" class="form-control @error('email') form-control-error @enderror" required="required" value="{{ old('email') }}">
 
                                 @error('email')
@@ -109,7 +109,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="password" class="required">{{ __('default.form.password') }}:</label>
+                                <label for="password" class="required">Password:</label>
                                 <input type="password" name="password" id="password" class="form-control @error('password') form-control-error @enderror" required="required">
 
                                 @error('password')
@@ -118,7 +118,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="password-confirm" class="required">{{ __('default.form.password-confirm') }}:</label>
+                                <label for="password-confirm" class="required">Confirm Password:</label>
                                 <input type="password" name="confirm-password" id="password-confirm" class="form-control @error('password-confirm') form-control-error @enderror" required="required">
 
                                 @error('confirm-password')
@@ -137,7 +137,7 @@
 
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="roles" class="required">{{ __('default.form.role') }}</label>
+                                <label for="roles" class="required">Role</label>
                                 <select name="roles[]" id="roles" class="select2" multiple="multiple">
                                     @foreach ($roles as $role)
                                         <option value="{{ $role->name }}">{{ $role->name }}</option>

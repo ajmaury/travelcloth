@@ -57,7 +57,7 @@ class CMSCategoryController extends Controller
                 ->addColumn('action', function($row){
 					if (Gate::check('cmscategory-edit')) {
                         $edit = '<a href="'.route('cmscategories.edit', $row->id).'" class="custom-edit-btn mr-1">
-                                    <i class="fe fe-pencil"></i> '.__('default.form.edit-button').'
+                                    <i class="fe fe-pencil"></i> '.__('Edit').'
                                 </a>';
                     }else{
                         $edit = '';
@@ -65,7 +65,7 @@ class CMSCategoryController extends Controller
 
                     if (Gate::check('cmscategory-delete')) {
                         $delete = '<button class="custom-delete-btn remove-cmscategory" data-id="'.$row->id.'" data-action="'.route('cmscategories.destroy').'">
-										<i class="fe fe-trash"></i> '.__('default.form.delete-button').'
+										<i class="fe fe-trash"></i> '.__('Delete').'
 									</button>';
                     }else{
                         $delete = '';
@@ -124,7 +124,7 @@ class CMSCategoryController extends Controller
 
 		try {
 			$category 		= CmsCategory::create($input);
-            Toastr::success(__('cmscategory.message.store.success'));
+            Toastr::success('CMS Category created success');
 		    return redirect()->route('cmscategories.index');
 		} catch (Exception $e) {
             Toastr::error(__('cmscategory.message.store.error'));
@@ -160,7 +160,7 @@ class CMSCategoryController extends Controller
 
         try {
 			$cmscategory->update($input);
-            Toastr::success(__('cmscategory.message.update.success'));
+            Toastr::success('Update successfully');
 		    return redirect()->route('cmscategories.index');
 		} catch (Exception $e) {
             Toastr::error(__('cmscategory.message.update.error'));
@@ -174,7 +174,7 @@ class CMSCategoryController extends Controller
 
 		try {
 			CmsCategory::find($id)->delete();
-			return back()->with(Toastr::error(__('cmscategory.message.destroy.success')));
+			return back()->with(Toastr::error('Destroy Successfully'));
 		} catch (Exception $e) {
 			$error_msg = Toastr::error(__('cmscategory.message.destroy.error'));
 			return redirect()->route('cmscategories.index')->with($error_msg);

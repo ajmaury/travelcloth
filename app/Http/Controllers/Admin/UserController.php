@@ -72,7 +72,7 @@ class UserController extends Controller
 					if (Gate::check('user-edit')) {
                         $edit = '<a href="'.route('users.edit', $row->id).'" class="custom-edit-btn mr-1">
                                     <i class="fe fe-pencil"></i>
-                                        '.__('default.form.edit-button').'
+                                        '.__('Edit').'
                                 </a>';
                     }else{
                         $edit = '';
@@ -80,7 +80,7 @@ class UserController extends Controller
                     if (Gate::check('user-delete')) {
                         $delete = '<button class="custom-delete-btn remove-user" data-id="'.$row->id.'" data-action="'.route('users.destroy').'">
 										<i class="fe fe-trash"></i>
-		                                '.__('default.form.delete-button').'
+		                                '.__('Delete').'
 									</button>';
                     }else{
                         $delete = '';
@@ -165,7 +165,7 @@ class UserController extends Controller
 				$user->assignRole($request->input('roles'));
 			}
 
-			Toastr::success(__('user.message.store.success'));
+			Toastr::success('Created Successfully');
 		    return redirect()->route('users.index');
 
 		} catch (Exception $e) {
@@ -220,7 +220,7 @@ class UserController extends Controller
                 $user->assignRole($request->input('roles'));
             }
 
-            Toastr::success(__('user.message.update.success'));
+            Toastr::success('Updated Successfully');
 		    return redirect()->route('users.index');
 		} catch (Exception $e) {
             Toastr::error(__('user.message.update.error'));
@@ -247,7 +247,7 @@ class UserController extends Controller
 			}
 			try {
 				User::find($id)->delete();
-				return back()->with(Toastr::error(__('user.message.destroy.success')));
+				return back()->with(Toastr::error('Destroy Successfully'));
 			} catch (Exception $e) {
 				$error_msg = Toastr::error(__('user.message.destroy.error'));
 				return redirect()->route('users.index')->with($error_msg);
@@ -280,7 +280,7 @@ class UserController extends Controller
 				'password' => $input['password']
 			]);
 
-			Toastr::success(__('user.message.profile.success'));
+			Toastr::success('Update Successfully');
 		    return redirect()->route('profile');
 		} catch (Exception $e) {
 			Toastr::success(__('user.message.profile.error'));
