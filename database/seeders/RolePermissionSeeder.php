@@ -50,11 +50,6 @@ class RolePermissionSeeder extends Seeder
             'cmspage-edit',
             'cmspage-delete',
 
-            'currency-list',
-            'currency-create',
-            'currency-edit',
-            'currency-delete',
-
             'file-manager',
             'websetting-edit',
             'user-activity',

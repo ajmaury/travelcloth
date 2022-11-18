@@ -1,7 +1,7 @@
 @extends('admin.layouts.master')
 
 @section('page_title')
-    {{__('setting.edit.title')}}
+    Setting
 @endsection
 
 @push('css')
@@ -30,19 +30,19 @@
 			<div class="card breadcrumb-card">
 				<div class="row justify-content-between align-content-between" style="height: 100%;">
 					<div class="col-md-6">
-						<h3 class="page-title">{{__('setting.index.title')}}</h3>
+						<h3 class="page-title">@yield('page_title')</h3>
 						<ul class="breadcrumb">
 							<li class="breadcrumb-item">
 								<a href="{{ route('dashboard') }}">Dashboard</a>
 							</li>
 							<li class="breadcrumb-item active-breadcrumb">
-								<a href="{{ route('website-setting.edit') }}">{{__('setting.edit.title')}}</a>
+								<a href="{{ route('website-setting.edit') }}">@yield('page_title')</a>
 							</li>
 						</ul>
 					</div>
 					<div class="col-md-3">
 						<div class="create-btn pull-right">
-							<button type="submit" class="btn custom-create-btn">{{ __('default.form.update-button') }}</button>
+							<button type="submit" class="btn custom-create-btn">Update</button>
 						</div>
 					</div>
 				</div>
@@ -59,9 +59,9 @@
 				<li class="nav-item">
 					<a class="nav-link" id="seo-tab" data-toggle="tab" href="#seo" role="tab" aria-controls="seo" aria-selected="false">SEO Setting</a>
 				</li>
-				<li class="nav-item">
+				<!--<li class="nav-item">
 					<a class="nav-link" id="currency-tab" data-toggle="tab" href="#currency" role="tab" aria-controls="currency" aria-selected="false">Currency Setting</a>
-				</li>
+				</li>-->
 				<li class="nav-item">
 					<a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact Setting</a>
 				</li>
@@ -86,8 +86,8 @@
 						<div class="card-body">
 																	
 							<div class="form-group">
-								<label for="website_title" class="required">{{__('default.form.website_title')}}:</label>
-								<input type="text" name="website_title" id="website_title" class="form-control @error('website_title') form-control-error @enderror" required="required" value="{{$setting->website_title}}">
+								<label for="website_title" class="required">Website Title:</label>
+								<input type="text" name="website_title" id="website_title" class="form-control @error('website_title') form-control-error @enderror" value="{{$setting->website_title}}">
 
 								@error('website_title')
 									<span class="text-danger">{{ $message }}</span>
@@ -100,7 +100,7 @@
 									<div class="card">
 										<div class="card-body text-center">
 											<div class="form-group">
-												<label for="website_title" class="required">{{__('default.form.website_logo_dark')}}:</label>
+												<label for="website_title" class="required">Website Logo Dark:</label>
 												<div class="">
 													@if(!empty($setting->website_logo_dark))
 														<img src="{{ $setting->website_logo_dark }}" alt="..." id="website_logo_dark_output" class="img-thumbnail rounded mb-3"  onerror="this.src='{{ asset('assets/admin/img/logo-def.png') }}';">
@@ -125,7 +125,7 @@
 									<div class="card">
 										<div class="card-body text-center">
 											<div class="form-group">
-												<label for="website_title" class="required">{{__('default.form.website_logo_light')}}:</label>
+												<label for="website_title" class="required">Website Logo Light:</label>
 												<div class="">											
 													@if(!empty($setting->website_logo_light))
 														<img src="{{ $setting->website_logo_light }}" alt="..." id="website_logo_light_output" class="img-thumbnail rounded mb-3"  onerror="this.src='{{ asset('assets/admin/img/logo-def.png') }}';" style="background-color: #ccc;">
@@ -150,7 +150,7 @@
 									<div class="card">
 										<div class="card-body text-center">
 											<div class="form-group">
-												<label for="website_title" class="required">{{__('default.form.website_logo_small')}}:</label>
+												<label for="website_title" class="required">Website Logo Small:</label>
 												<div class="">											
 													@if(!empty($setting->website_logo_small))
 														<img src="{{ $setting->website_logo_small }}" alt="..." id="website_logo_output" class="img-thumbnail rounded mb-3"  onerror="this.src='{{ asset('assets/admin/img/logo-def.png') }}';" style="height: 60px;">
@@ -175,7 +175,7 @@
 									<div class="card">
 										<div class="card-body text-center">
 											<div class="form-group">
-												<label for="website_title" class="required">{{__('default.form.website_favicon')}}:</label>
+												<label for="website_title" class="required">Website Favicon:</label>
 
 												<div class="">
 											
@@ -217,7 +217,7 @@
 						<div class="card-body">
 									
 							<div class="form-group">
-								<label for="meta_title">{{__('default.form.meta_title')}}:</label>
+								<label for="meta_title">Meta Title:</label>
 								<input type="text" name="meta_title" id="meta_title" class="form-control @error('meta_title') form-control-error @enderror" value="{{$setting->meta_title}}">
 
 								@error('meta_title')
@@ -226,7 +226,7 @@
 							</div>
 									
 							<div class="form-group">
-								<label for="meta_description">{{__('default.form.meta_description')}}:</label>
+								<label for="meta_description">Meta Description:</label>
 								<textarea name="meta_description" id="meta_description" class="form-control @error('meta_description') form-control-error @enderror">{{$setting->meta_description}}</textarea> 
 
 								@error('meta_description')
@@ -235,7 +235,7 @@
 							</div>
 											
 							<div class="form-group">
-								<label for="meta_tag">{{__('default.form.meta_keywords')}}:</label>
+								<label for="meta_tag">Meta Keyword:</label>
 								<input type="text" name="meta_tag" id="meta_tag" class="form-control @error('meta_tag') form-control-error @enderror" value="{{$setting->meta_tag}}">
 
 								@error('meta_tag')
@@ -247,37 +247,6 @@
 					</div>
 				</div>
 				<!-- /SEO Setting -->
-
-				<!-- Currency Setting -->
-				<div class="tab-pane fade" id="currency" role="tabpanel" aria-labelledby="currency-tab">
-					<div class="card">
-						<div class="card-header">
-							<h5 class="card-title">
-								Currency Setting
-							</h5>
-						</div>
-						
-						<div class="card-body">
-									
-							<div class="form-group">
-								<label for="currency_id">{{__('default.form.currency')}}:</label>
-								<select name="currency_id" id="currency_id" class="form-control" value="{{$setting->currency}}">
-								<option value="">Select Currency</option>
-									@foreach($currencies as $currency)
-										<option value="{{$currency->id}}" @if($currency->id == $setting->currency_id) selected @endif>{{$currency->name}} ({{$currency->code}})</option>
-									@endforeach
-								</select>
-
-								@error('currency_id')
-									<span class="text-danger">{{ $message }}</span>
-								@enderror
-							</div>
-
-						</div>
-					</div>
-				</div>
-				<!-- Currency Setting -->
-
 				<!-- Contact Setting -->
 				<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
 					<div class="card">
@@ -290,7 +259,7 @@
 						<div class="card-body">
 										
 							<div class="form-group">
-								<label for="address">{{__('default.form.address')}}:</label>
+								<label for="address">Address:</label>
 								<textarea name="address" id="address" class="form-control @error('address') form-control-error @enderror">{{$setting->address}}</textarea>
 
 								@error('address')
@@ -299,7 +268,7 @@
 							</div>
 									
 							<div class="form-group">
-								<label for="phone">{{__('default.form.phone')}}:</label>
+								<label for="phone">Phone:</label>
 								<input type="text" name="phone" id="phone" class="form-control @error('phone') form-control-error @enderror" value="{{$setting->phone}}">
 
 								@error('phone')
@@ -308,7 +277,7 @@
 							</div>
 									
 							<div class="form-group">
-								<label for="email">{{__('default.form.email')}}:</label>
+								<label for="email">Email:</label>
 								<input type="text" name="email" id="email" class="form-control @error('email') form-control-error @enderror" value="{{$setting->email}}">
 
 								@error('email')
@@ -333,7 +302,7 @@
 						<div class="card-body">
 									
 							<div class="form-group">
-								<label for="facebook">{{__('default.form.facebook')}}:</label>
+								<label for="facebook">Facebook:</label>
 								<input type="text" name="facebook" id="facebook" class="form-control @error('facebook') form-control-error @enderror" value="{{$setting->facebook}}">
 
 								@error('facebook')
@@ -342,7 +311,7 @@
 							</div>
 									
 							<div class="form-group">
-								<label for="twitter">{{__('default.form.twitter')}}:</label>
+								<label for="twitter">Twitter:</label>
 								<input type="text" name="twitter" id="twitter" class="form-control @error('twitter') form-control-error @enderror" value="{{$setting->twitter}}">
 
 								@error('twitter')
@@ -351,7 +320,7 @@
 							</div>
 									
 							<div class="form-group">
-								<label for="linkedin">{{__('default.form.linkedin')}}:</label>
+								<label for="linkedin">Linkdin:</label>
 								<input type="text" name="linkedin" id="linkedin" class="form-control @error('linkedin') form-control-error @enderror" value="{{$setting->linkedin}}">
 
 								@error('linkedin')
@@ -360,7 +329,7 @@
 							</div>
 									
 							<div class="form-group">
-								<label for="instagram">{{__('default.form.instagram')}}:</label>
+								<label for="instagram">Instagram:</label>
 								<input type="text" name="instagram" id="instagram" class="form-control @error('instagram') form-control-error @enderror" value="{{$setting->instagram}}">
 
 								@error('instagram')
@@ -369,7 +338,7 @@
 							</div>
 
 							<div class="form-group">
-								<label for="github">{{__('default.form.github')}}</label>
+								<label for="github">Github</label>
 								<input type="text" name="github" id="github" class="form-control" @error('instagram') form-control-error @enderror" value="{{$setting->github}}">
 
 								@error('github')

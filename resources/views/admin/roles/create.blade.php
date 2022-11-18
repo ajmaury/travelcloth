@@ -1,7 +1,7 @@
 @extends('admin.layouts.master')
 
 @section('page_title')
-    {{__('role.create.title')}}
+    Create
 @endsection
 
 @section('content')
@@ -12,22 +12,22 @@
 			<div class="card breadcrumb-card">
 				<div class="row justify-content-between align-content-between" style="height: 100%;">
 					<div class="col-md-6">
-						<h3 class="page-title">{{__('role.index.title')}}</h3>
+						<h3 class="page-title">@yield('page_title')</h3>
 						<ul class="breadcrumb">
 							<li class="breadcrumb-item">
 								<a href="{{ route('dashboard') }}">Dashboard</a>
 							</li>
 							<li class="breadcrumb-item">
-								<a href="{{ route('roles.index') }}">{{ __('role.index.title') }}</a>
+								<a href="{{ route('roles.index') }}">@yield('page_title')</a>
 							</li>
 							<li class="breadcrumb-item active-breadcrumb">
-								<a href="{{ route('roles.create') }}">{{ __('role.create.title') }}</a>
+								<a href="{{ route('roles.create') }}">@yield('page_title')</a>
 							</li>
 						</ul>
 					</div>
 					<div class="col-md-3">
 						<div class="create-btn pull-right">
-							<button type="submit" class="btn custom-create-btn">{{ __('default.form.save-button') }}</button>
+							<button type="submit" class="btn custom-create-btn">Save</button>
 						</div>
 					</div>
 				</div>
@@ -47,7 +47,7 @@
 							<div class="col-md-12">
 
 								<div class="form-group">
-									<label for="name" class="required">{{ __('default.form.name') }}</label>
+									<label for="name" class="required">Name</label>
 									<input type="text" class="form-control" name="name" id="name" class="form-control @error('name') form-control-error @enderror" placeholder="Enter role name" value="{{ old('name') }}" required>
 
 									@error('name')
@@ -56,7 +56,7 @@
 								</div>
 
 								<div class="form-group">
-									<label for="code" class="required">{{ __('default.form.code') }}</label>
+									<label for="code" class="required">Code</label>
 									<input type="text" class="form-control" name="code" id="code" class="form-control @error('code') form-control-error @enderror" placeholder="Enter code" value="{{ old('code') }}" required>
 
 									@error('code')

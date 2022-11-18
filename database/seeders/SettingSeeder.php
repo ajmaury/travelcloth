@@ -27,7 +27,6 @@ class SettingSeeder extends Seeder
                 'meta_title'            => '',
                 'meta_description'      => '',
                 'meta_tag'              => '',
-                'currency_id'           => 1,
                 'address'               => 'Dhaka, Bangladesh',
                 'phone'                 => '+8801689201370',
                 'email'                 => 'soumik.ahammed.9@gmail.com',

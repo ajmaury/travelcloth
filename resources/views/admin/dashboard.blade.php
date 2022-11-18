@@ -1,7 +1,7 @@
 @extends('admin.layouts.master')
 
 @section('page_title')
-    {{__('dashboard.title')}}
+   Dashboard 
 @endsection
 
 @push('css')
@@ -18,7 +18,7 @@
 		<div class="card breadcrumb-card">
 			<div class="row justify-content-between align-content-between" style="height: 100%;">
 				<div class="col-md-6">
-					<h3 class="page-title">{{__('dashboard.title')}}</h3>
+					<h3 class="page-title">@yield('page_title')</h3>
 					<ul class="breadcrumb">
 						<li class="breadcrumb-item active-breadcrumb">
 							<a href="{{ route('dashboard') }}">Dashboard</a>

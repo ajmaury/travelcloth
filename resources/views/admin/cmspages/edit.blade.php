@@ -1,7 +1,7 @@
 @extends('admin.layouts.master')
 
 @section('page_title')
-    {{__('cms.edit.title')}}
+    CMS Page Edit
 @endsection
 
 @push('css')
@@ -21,22 +21,22 @@
 			<div class="card breadcrumb-card">
 				<div class="row justify-content-between align-content-between" style="height: 100%;">
 					<div class="col-md-6">
-						<h3 class="page-title">{{__('cms.index.title')}}</h3>
+						<h3 class="page-title">@yield('page_title')</h3>
 						<ul class="breadcrumb">
 							<li class="breadcrumb-item">
 								<a href="{{ route('dashboard') }}">Dashboard</a>
 							</li>
 							<li class="breadcrumb-item">
-								<a href="{{ route('cmspages.index') }}">{{ __('cms.index.title') }}</a>
+								<a href="{{ route('cmspages.index') }}">@yield('page_title')</a>
 							</li>
 							<li class="breadcrumb-item active-breadcrumb">
-								<a href="{{ route('cmspages.edit', $cmspage->id) }}">{{ __('cms.edit.title') }} - ({{ $cmspage->title }})</a>
+								<a href="{{ route('cmspages.edit', $cmspage->id) }}">@yield('page_title') - ({{ $cmspage->title }})</a>
 							</li>
 						</ul>
 					</div>
 					<div class="col-md-3">
 						<div class="create-btn pull-right">
-							<button type="submit" class="btn custom-create-btn">{{ __('default.form.update-button') }}</button>
+							<button type="submit" class="btn custom-create-btn">Update</button>
 						</div>
 					</div>
 				</div>
@@ -60,7 +60,7 @@
 								<div class="col-md-12">
 
 									<div class="form-group">
-										<label for="title" class="required">{{__('default.form.title')}}:</label>
+										<label for="title" class="required">Title:</label>
 										<input type="text" name="title" id="title" class="form-control @error('title') form-control-error @enderror" required="required" value="{{$cmspage->title}}">
 
 										@error('title')
@@ -69,7 +69,7 @@
 									</div>
 
 									<div class="form-group">
-										<label for="slug" class="required">{{__("default.form.slug")}}:</label>
+										<label for="slug" class="required">Slug:</label>
 										<input type="text" name="slug" id="slug" class="form-control" readonly value="{{$cmspage->slug}}">
 
 										@error('slug')
@@ -78,7 +78,7 @@
 									</div>
 
 									<div class="form-group">
-										<label for="cms_category_id" class="required">{{__("default.form.category")}}:</label>
+										<label for="cms_category_id" class="required">Category:</label>
 										<select type="text" name="cms_category_id" id="cms_category_id" class="form-control @error('cms_category_id') form-control-error @enderror" required="required">
 											@foreach ($cmscategories as $cmscategory)
 												<option value="{{$cmscategory->id}}"  @if ($cmspage->cat_id == $cmscategory->id) @endif selected>{{$cmscategory->name}}</option>
@@ -90,7 +90,7 @@
 									</div>
 
 									<div class="form-group">
-										<label for="description" class="required">{{__("default.form.description")}}:</label>
+										<label for="description" class="required">Description:</label>
 										<textarea name="description" id="description" class="form-control @error('description') form-control-error @enderror" rows="20">{{$cmspage->description}}</textarea>
 
 										@error('description')
@@ -99,7 +99,7 @@
 									</div>
 
 									<div class="form-group">
-										<label for="status" class="required">{{__("cmspage.form.status")}}:</label>
+										<label for="status" class="required">Status:</label>
 										<select type="text" name="status" id="status" class="form-control @error('status') form-control-error @enderror" required="required">
 											<option value="1" @if($cmspage->status == "1") selected @endif>Active</option>
 											<option value="0" @if($cmspage->status == "0") selected @endif>Inactive</option>
@@ -128,7 +128,7 @@
 								<div class="col-md-12">
 				
 									<div class="form-group">
-										<label for="meta_title" class="required">{{ __('default.form.meta_title') }}</label>
+										<label for="meta_title" class="required">Meta Title</label>
 										<input type="text" class="form-control" name="meta_title" id="meta_title" value="{{ $cmspage->meta_title }}" required>
 	
 										@error('meta_title')
@@ -137,7 +137,7 @@
 									</div>
 	
 									<div class="form-group">
-										<label for="meta_description" class="required">{{ __('default.form.meta_description') }}</label>
+										<label for="meta_description" class="required">Meta Description</label>
 										<textarea name="meta_description" id="meta_description" class="form-control" rows="10">{{ $cmspage->meta_description }}</textarea>
 	
 										@error('meta_keywords')
@@ -146,7 +146,7 @@
 									</div>
 	
 									<div class="form-group">
-										<label for="meta_keywords" class="required">{{ __('default.form.meta_keywords') }}</label>
+										<label for="meta_keywords" class="required">Meta Keyword</label>
 										<input type="text" class="form-control" name="meta_keywords" id="meta_keywords" value="{{ $cmspage->meta_keywords }}" required>
 	
 										@error('meta_keywords')

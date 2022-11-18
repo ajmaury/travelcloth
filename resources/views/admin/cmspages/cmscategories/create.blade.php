@@ -1,7 +1,7 @@
 @extends('admin.layouts.master')
 
 @section('page_title')
-    {{__('cmscategory.create.title')}}
+   Create
 @endsection
 
 @push('css')
@@ -21,20 +21,20 @@
             <div class="card breadcrumb-card">
                 <div class="row justify-content-between align-content-between" style="height: 100%;">
                     <div class="col-md-6">
-                        <h3 class="page-title">{{__('cmscategory.index.title')}}</h3>
+                        <h3 class="page-title">@yield('page_title')</h3>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
                             <li class="breadcrumb-item">
-								<a href="{{ route('cmscategories.index') }}">{{ __('cmscategory.index.title') }}</a>
+								<a href="{{ route('cmscategories.index') }}">@yield('page_title')</a>
 							</li>
                             <li class="breadcrumb-item active-breadcrumb">
-								<a href="{{ route('cmscategories.create') }}">{{ __('cmscategory.create.title') }}</a>
+								<a href="{{ route('cmscategories.create') }}">@yield('page_title')</a>
 							</li>
                         </ul>
                     </div>
                     <div class="col-md-3">
                         <div class="create-btn pull-right">
-                            <button type="submit" class="btn custom-create-btn">{{ __('default.form.save-button') }}</button>
+                            <button type="submit" class="btn custom-create-btn">Save</button>
                         </div>
                     </div>
                 </div>
@@ -56,7 +56,7 @@
 								<div class="col-md-12">
 
 									<div class="form-group">
-										<label for="name" class="required">{{__('default.form.name')}}:</label>
+										<label for="name" class="required">Name:</label>
 										<input type="text" name="name" id="name" class="form-control @error('name') form-control-error @enderror" required="required" value="{{old('name')}}">
 										
 										@error('name')
@@ -65,7 +65,7 @@
 									</div>
 
 									<div class="form-group">
-										<label for="slug" class="required">{{__("default.form.slug")}}:</label>
+										<label for="slug" class="required">Slug:</label>
 										<input type="text" name="slug" id="slug" readonly class="form-control @error('slug') form-control-error @enderror" required="required">
 
 										@error('slug')
@@ -74,7 +74,7 @@
 									</div>
 
 									<div class="form-group">
-										<label for="status" class="required">{{__("default.form.status")}}:</label>
+										<label for="status" class="required">Status:</label>
 										<select type="text" name="status" id="status" class="form-control @error('status') form-control-error @enderror" required="required">
 											<option value="1">Active</option>
 											<option value="0">Inactive</option>

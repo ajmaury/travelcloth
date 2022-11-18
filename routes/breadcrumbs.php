@@ -2,7 +2,7 @@
 
 // Home
 Breadcrumbs::for('dashboard', function ($trail) {
-    $trail->push(__('dashboard.title'), route('dashboard'));
+    $trail->push('Dashboard', route('dashboard'));
 });
 
 //Home > Home > Testimonials
@@ -93,7 +93,7 @@ Breadcrumbs::for('permissions.edit', function ($trail) {
 // Home > File Manager
 Breadcrumbs::for('filemanager.index', function ($trail) {
     $trail->parent('dashboard');
-    $trail->push(__('filemanager.breadcrumb.index'), route('filemanager.index'));
+    $trail->push('File Manager', route('filemanager.index'));
 });
 
 

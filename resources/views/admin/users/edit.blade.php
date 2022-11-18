@@ -1,7 +1,7 @@
 @extends('admin.layouts.master')
 
 @section('page_title')
-    {{__('user.edit.title')}}
+    User
 @endsection
 
 @push('css')
@@ -22,21 +22,21 @@
 			<div class="card breadcrumb-card">
 				<div class="row justify-content-between align-content-between" style="height: 100%;">
 					<div class="col-md-6">
-						<h3 class="page-title">{{__('user.index.title')}}</h3>
+						<h3 class="page-title">@yield('page_title')</h3>
 						<ul class="breadcrumb">
 							<li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a>
 							</li>
 							<li class="breadcrumb-item">
-								<a href="{{ route('users.index') }}">{{ __('user.index.title') }}</a>
+								<a href="{{ route('users.index') }}">@yield('page_title')</a>
 							</li>
 							<li class="breadcrumb-item active-breadcrumb">
-								<a href="{{ route('users.edit', $user->id) }}">{{ __('user.edit.title') }} - ({{ $user->name }})</a>
+								<a href="{{ route('users.edit', $user->id) }}">@yield('page_title') - ({{ $user->name }})</a>
 							</li>
 						</ul>
 					</div>
 					<div class="col-md-3">
 						<div class="create-btn pull-right">
-							<button type="submit" class="btn custom-create-btn">{{ __('default.form.update-button') }}</button>
+							<button type="submit" class="btn custom-create-btn">Update</button>
 						</div>
 					</div>
 				</div>
@@ -80,7 +80,7 @@
 						
 								<div class="card-body">		
 									<div class="form-group">
-										<label for="name" class="required">{{__('default.form.name')}}:</label>
+										<label for="name" class="required">Name:</label>
 										<input type="text" name="name" id="name" class="form-control @error('name') form-control-error @enderror" required="required" value="{{$user->name}}">
 
 										@error('name')
@@ -89,7 +89,7 @@
 									</div>
 
 									<div class="form-group">
-										<label for="mobile">{{__("default.form.mobile")}}:</label>
+										<label for="mobile">Mobile:</label>
 										<input type="number" name="mobile" id="mobile" class="form-control @error('mobile') form-control-error @enderror" disabled value="{{$user->mobile}}">
 
 										@error('mobile')
@@ -109,7 +109,7 @@
 								<div class="card-body">
 
 									<div class="form-group">
-										<label for="email">{{__("default.form.email")}}:</label>
+										<label for="email">Email:</label>
 										<input type="email" name="email" id="email" class="form-control @error('email') form-control-error @enderror" value="{{$user->email}}" disabled>
 
 										@error('email')
@@ -118,7 +118,7 @@
 									</div>
 
 									<div class="form-group">
-										<label for="password">{{__("default.form.password")}}:</label>
+										<label for="password">Password:</label>
 										<input type="password" name="password" id="password" class="form-control @error('password') form-control-error @enderror">
 
 										@error('password')
@@ -127,7 +127,7 @@
 									</div>
 
 									<div class="form-group">
-										<label for="password-confirm">{{__("default.form.password-confirm")}}:</label>
+										<label for="password-confirm">Password Confirm:</label>
 										<input type="password" name="confirm-password" id="password-confirm" class="form-control @error('password-confirm') form-control-error @enderror">
 
 										@error('confirm-password')
@@ -146,7 +146,7 @@
 
 								<div class="card-body">
 									<div class="form-group">
-										<label for="roles" class="required">{{ __('default.form.role') }}</label>
+										<label for="roles" class="required">Role</label>
 										<select name="roles[]" id="roles" class="select2" multiple="multiple">
 											@foreach ($roles as $role)
 												<option value="{{ $role->name }}" {{ $user->hasRole($role->name) ? 'selected' : '' }}>{{ $role->name }}</option>

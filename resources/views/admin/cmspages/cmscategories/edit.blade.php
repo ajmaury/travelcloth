@@ -1,7 +1,7 @@
 @extends('admin.layouts.master')
 
 @section('page_title')
-    {{__('cmscategory.edit.title')}}
+    CMS Category Edit
 @endsection
 
 @push('css')
@@ -21,22 +21,22 @@
 			<div class="card breadcrumb-card">
 				<div class="row justify-content-between align-content-between" style="height: 100%;">
 					<div class="col-md-6">
-						<h3 class="page-title">{{__('cmscategory.index.title')}}</h3>
+						<h3 class="page-title">@yield('page_title')</h3>
 						<ul class="breadcrumb">
 							<li class="breadcrumb-item">
 								<a href="{{ route('dashboard') }}">Dashboard</a>
 							</li>
 							<li class="breadcrumb-item">
-								<a href="{{ route('cmscategories.index') }}">{{ __('cmscategory.index.title') }}</a>
+								<a href="{{ route('cmscategories.index') }}">@yield('page_title')</a>
 							</li>
 							<li class="breadcrumb-item active-breadcrumb">
-								<a href="{{ route('cmscategories.edit', $cmscategory->id) }}">{{ __('cmscategory.edit.title') }} - ({{ $cmscategory->name }})</a>
+								<a href="{{ route('cmscategories.edit', $cmscategory->id) }}">@yield('page_title') - ({{ $cmscategory->name }})</a>
 							</li>
 						</ul>
 					</div>
 					<div class="col-md-3">
 						<div class="create-btn pull-right">
-							<button type="submit" class="btn custom-create-btn">{{ __('default.form.update-button') }}</button>
+							<button type="submit" class="btn custom-create-btn">Update</button>
 						</div>
 					</div>
 				</div>
@@ -58,7 +58,7 @@
 								<div class="col-md-12">
 
 									<div class="form-group">
-										<label for="name" class="required">{{__('default.form.name')}}:</label>
+										<label for="name" class="required">Name:</label>
 										<input type="text" name="name" id="name" class="form-control @error('name') form-control-error @enderror" required="required" value="{{$cmscategory->name}}">
 
 										@error('name')
@@ -67,7 +67,7 @@
 									</div>
 
 									<div class="form-group">
-										<label for="slug" class="required">{{__("default.form.slug")}}:</label>
+										<label for="slug" class="required">Slug:</label>
 										<input type="text" name="slug" id="slug" class="form-control" readonly value="{{$cmscategory->slug}}">
 
 										@error('slug')
@@ -76,7 +76,7 @@
 									</div>
 
 									<div class="form-group">
-										<label for="status" class="required">{{__("default.form.status")}}:</label>
+										<label for="status" class="required">Status:</label>
 										<select type="text" name="status" id="status" class="form-control @error('status') form-control-error @enderror" required="required">
 											<option value="1" @if($cmscategory->status == "1") selected @endif>Active</option>
 											<option value="0" @if($cmscategory->status == "0") selected @endif>Inactive</option>

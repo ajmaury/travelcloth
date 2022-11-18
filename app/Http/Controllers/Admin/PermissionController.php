@@ -75,7 +75,7 @@ class PermissionController extends Controller
 		try {
 			$permissions = Permission::create(['name' => $request->input('name')]);
 
-			Toastr::success(__('permission.message.store.success'));
+			Toastr::success('Created Successfully');
 		    return redirect()->route('permissions.create');
 		} catch (Exception $e) {
 			Toastr::error(__('permission.message.store.error'));
@@ -107,7 +107,7 @@ class PermissionController extends Controller
 			$permissions->name = $request->input('name');
 			$permissions->save();
 
-            Toastr::success(__('permission.message.update.success'));
+            Toastr::success('Updated Successfully');
 		    return redirect()->route('permissions.index');
 
 		} catch (Exception $e) {
@@ -121,7 +121,7 @@ class PermissionController extends Controller
 		$id = request()->input('id');
 		try {
             Permission::find($id)->delete();
-			return redirect()->route('permissions.index')->with(Toastr::error(__('permission.message.destroy.success')));
+			return redirect()->route('permissions.index')->with(Toastr::error('Destroy Successfully'));
 
 		} catch (Exception $e) {
             $error_msg = Toastr::error(__('permission.message.destroy.error'));
