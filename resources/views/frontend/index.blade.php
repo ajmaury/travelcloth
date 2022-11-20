@@ -14,7 +14,7 @@
       <div class="container">
         <div class="row justify-content-center align-content-center" style="height: 650px;">
             <div class="col-md-4">
-                <h2 class="text-danger">Website under maintaince !!</h2>
+                <h2 class="text-danger">Website under Development !!</h2>
             </div>
         </div>
       </div>
