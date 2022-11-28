@@ -5,7 +5,7 @@
     <div class="header-left">
         @if($setting->website_logo_dark != null || !empty($setting->website_logo_dark))
             <a href="{{ route('dashboard') }}" class="logo">
-                <img src="{{$setting->website_logo_dark}}" alt="{{$setting->website_title}}">
+                <img src="{{url('storage/logo/'.$setting->website_logo_dark)}}" alt="{{$setting->website_title}}">
             </a>
         @else
             <a href="{{ route('dashboard') }}" class="logo">
@@ -15,7 +15,7 @@
 
         @if($setting->website_logo_small != null || !empty($setting->website_logo_small))
             <a href="{{ route('dashboard') }}" class="logo logo-small">
-                <img src="{{$setting->website_logo_small}}" alt="{{$setting->website_title}}">
+                <img src="{{url('storage/logo/'.$setting->website_logo_small)}}" alt="{{$setting->website_title}}">
             </a>
         @else
             <a href="{{ route('dashboard') }}" class="logo logo-small">
@@ -91,7 +91,7 @@
         <li class="nav-item dropdown has-arrow">
             <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                 <span class="user-img">
-                    <img class="rounded-circle" src="{{ Auth::user()->image }}" onerror="this.src='{{ asset('assets/admin/img/default-user.png') }}';" width="31" alt="{{auth()->user()->name}}">
+                    <img class="rounded-circle" src="{{ url('storage/admin_profile/'.Auth::user()->image) }}" onerror="this.src='{{ asset('assets/admin/img/default-user.png') }}';" width="31" alt="{{auth()->user()->name}}">
                 </span>
             </a>
             <div class="dropdown-menu">

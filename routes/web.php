@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Frontend Routes
-Route::get('/', 					[App\Http\Controllers\Frontend\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\Frontend\HomeController::class, 'index'])->name('home');
 
 
 
@@ -36,6 +36,8 @@ Route::get('/', 					[App\Http\Controllers\Frontend\HomeController::class, 'inde
 		Route::group(['middleware' => ['auth']], function () {
 
 			Route::get('/dashboard', 			[App\Http\Controllers\Admin\DashboardController::class, 'dashboard'])->name('dashboard');
+			Route::get('/fileUpload', 			[App\Http\Controllers\UploadFileController::class, 'index'])->name('fileUpload');
+			Route::post('/showUploadFile', 			[App\Http\Controllers\UploadFileController::class, 'showUploadFile']);
 
 			// Profile
 			Route::get('/profile', 				[App\Http\Controllers\Admin\UserController::class, 'profile'])->name('profile');
@@ -70,17 +72,6 @@ Route::get('/', 					[App\Http\Controllers\Frontend\HomeController::class, 'inde
 				Route::get('/edit/{id}', 		[App\Http\Controllers\Admin\PermissionController::class, 'edit'])->name('permissions.edit');
 				Route::post('/update/{id}', 	[App\Http\Controllers\Admin\PermissionController::class, 'update'])->name('permissions.update');
 				Route::post('/destroy', 		[App\Http\Controllers\Admin\PermissionController::class, 'destroy'])->name('permissions.destroy');
-			});
-
-			// Currency
-			Route::prefix('currencies')->group(function () {
-				Route::get('/index', 			[App\Http\Controllers\Admin\CurrencyController::class, 'index'])->name('currencies.index');
-				Route::get('/create', 			[App\Http\Controllers\Admin\CurrencyController::class, 'create'])->name('currencies.create');
-				Route::post('/store', 			[App\Http\Controllers\Admin\CurrencyController::class, 'store'])->name('currencies.store');
-				Route::get('/edit/{id}', 		[App\Http\Controllers\Admin\CurrencyController::class, 'edit'])->name('currencies.edit');
-				Route::post('/update/{id}', 	[App\Http\Controllers\Admin\CurrencyController::class, 'update'])->name('currencies.update');
-				Route::post('/destroy', 		[App\Http\Controllers\Admin\CurrencyController::class, 'destroy'])->name('currencies.destroy');
-				Route::get('/status_update', 	[App\Http\Controllers\Admin\CurrencyController::class, 'status_update'])->name('currencies.status_update');
 			});
 
 			// Setting

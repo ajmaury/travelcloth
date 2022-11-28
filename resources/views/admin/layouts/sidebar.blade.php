@@ -4,9 +4,7 @@
         <div id="sidebar-menu" class="sidebar-menu">
             <ul>
 
-                <li class="menu-title">
-                    <span>Main</span>
-                </li>
+                
 
                 <!-- Dashboard -->
                 <li class="{{ (request()->is('admin/dashboard*')) ? 'active' : '' }}">
