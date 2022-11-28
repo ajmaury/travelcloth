@@ -16,7 +16,7 @@
     
     <!-- Favicon -->
     @if($setting->website_favicon != null || !empty($setting->website_favicon))
-        <link rel="shortcut icon" type="image/x-icon" href="{{$setting->website_favicon}}">
+        <link rel="shortcut icon" type="image/x-icon" href="{{url('storage/logo/'.$setting->website_favicon)}}">
     @else
         <link rel="shortcut icon" type="image/x-icon" href="{{ url('assets/admin/img/favicon-def.png') }}">
     @endif

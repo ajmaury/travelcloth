@@ -3,9 +3,6 @@
     <div class="sidebar-inner slimscroll">
         <div id="sidebar-menu" class="sidebar-menu">
             <ul>
-
-                
-
                 <!-- Dashboard -->
                 <li class="{{ (request()->is('admin/dashboard*')) ? 'active' : '' }}">
                     <a class="sidebar-link" href="{{ route('dashboard') }}" aria-expanded="false">
@@ -17,11 +14,11 @@
                 </li>
                 <!-- /Dashboard -->
 
-                <!-- CMS -->
+                <!-- CMS 
                 @if(auth()->user()->can('cmspage-list') || auth()->user()->can('cmscategory-list'))
                     <li class="submenu">
                         <a class="" href="javascript:void(0)" aria-expanded="false">
-                            <i data-feather="file-text"></i>
+                            <i class="fa fa-file-text"></i>
                             <span class="hide-menu">CMS</span>
                             <span class="menu-arrow"></span>
                         </a>
@@ -45,14 +42,128 @@
                         </ul>
                     </li>
                 @endif
-                <!-- /CMS -->
+                 /CMS -->
 
+                <!-- customer -->
+                <li class="submenu">
+                    <a class="" href="javascript:void(0)" aria-expanded="false">
+                        <i class="fa fa-users pr20"></i>
+                        <span class="hide-menu"> User </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+
+                    <ul style="display: none;">
+                        
+                            <li>
+                                <a href="{{ route('users.index') }}" title="Customer" class="sidebar-link {{ (request()->is('admin/user*')) ? 'active' : '' }}">
+                                    <span class="hide-menu">Customer</span>
+                                </a>
+                            </li>
+
+                        
+                            <li>
+                                <a href="{{ route('roles.index') }}" title="Partner Agent" class="sidebar-link {{ (request()->is('admin/roles*')) ? 'active' : '' }}">
+                                    <span class="hide-menu">Partner Agent</span>
+                                </a>
+                            </li>
+                       
+
+                       
+                            <li>
+                                <a href="{{ route('permissions.index') }}" title="Hotel" class="sidebar-link {{ (request()->is('admin/permissions*')) ? 'active' : '' }}">
+                                    <span class="hide-menu">Hotel</span>
+                                </a>
+                            </li>
+                        
+
+                        
+                            <li>
+                                <a href="/admin/user-activity" title="Logistics" class="sidebar-link {{ (request()->is('admin/setting/useractivity*')) ? 'active' : '' }}">
+                                    <span class="hide-menu">Logistics</span>
+                                </a>
+                            </li>
+                    </ul>
+                </li>
+                <!-- /customer -->
+
+                <!-- Pricing -->
+                <li class="{{ (request()->is('admin/dashboard*')) ? 'active1' : '' }}">
+                    <a class="sidebar-link" href="{{ route('dashboard') }}" aria-expanded="false">
+                        <i class="fas fa-rupee-sign"></i>
+                        <span>
+                            Pricing
+                        </span>
+                    </a>
+                </li>
+                <!-- /Pricing -->
+                <!-- Quote -->
+                <li class="{{ (request()->is('admin/dashboard*')) ? 'active1' : '' }}">
+                    <a class="sidebar-link" href="{{ route('dashboard') }}" aria-expanded="false">
+                        <i class="fas fa-edit"></i>
+                        <span>
+                            Quotes
+                        </span>
+                    </a>
+                </li>
+                <!-- /Quote -->
+                <!-- Order Management -->
+                <li class="{{ (request()->is('admin/dashboard*')) ? 'active1' : '' }}">
+                    <a class="sidebar-link" href="{{ route('dashboard') }}" aria-expanded="false">
+                        <i class="fab fa-first-order"></i>
+                        <span>
+                            Order Management
+                        </span>
+                    </a>
+                </li>
+                <!-- /Order Management -->
+                <!-- Coupon -->
+                <li class="submenu">
+                    <a class="" href="javascript:void(0)" aria-expanded="false">
+                        <i class="fa fa-tag"></i>
+                        <span class="hide-menu">Coupon</span>
+                        <span class="menu-arrow"></span>
+                    </a>
+
+                    <ul style="display: none;">
+                        <li>
+                            <a href="{{route('website-setting.edit')}}" title="Website Setting" class="sidebar-link {{ (request()->is('admin/setting/website-setting*')) ? 'active' : '' }}">
+                                <span class="hide-menu">Customer</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{route('filemanager.index')}}" title="File Manager" class="sidebar-link {{ (request()->is('admin/setting/file-manager*')) ? 'active' : '' }}">
+                                <span class="hide-menu">Agent</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- /Coupon -->
+                 <!-- Reports -->
+                 <li class="{{ (request()->is('admin/dashboard*')) ? 'active1' : '' }}">
+                    <a class="sidebar-link" href="{{ route('dashboard') }}" aria-expanded="false">
+                        <i class="fa fa-file"></i>
+                        <span>
+                            Reports
+                        </span>
+                    </a>
+                </li>
+                <!-- /Reports -->
+                 <!-- Payout -->
+                 <li class="{{ (request()->is('admin/dashboard*')) ? 'active1' : '' }}">
+                    <a class="sidebar-link" href="{{ route('dashboard') }}" aria-expanded="false">
+                        <i class="fa fa-credit-card"></i>
+                        <span>
+                            Payout
+                        </span>
+                    </a>
+                </li>
+                <!-- /Payout -->
                 <!-- Users -->
                 @if(auth()->user()->can('user-list') || auth()->user()->can('role-list') || auth()->user()->can('permission-list') || auth()->user()->can('user-activity'))
                     <li class="submenu">
                         <a class="" href="javascript:void(0)" aria-expanded="false">
-                            <i data-feather="users"></i>
-                            <span class="hide-menu">User </span>
+                            <i class="fa fa-users"></i>
+                            <span class="hide-menu">Staff </span>
                             <span class="menu-arrow"></span>
                         </a>
 
@@ -60,7 +171,7 @@
                             @can('user-list')
                                 <li>
                                     <a href="{{ route('users.index') }}" title="User" class="sidebar-link {{ (request()->is('admin/user*')) ? 'active' : '' }}">
-                                        <span class="hide-menu">User</span>
+                                        <span class="hide-menu">Staff</span>
                                     </a>
                                 </li>
                             @endcan
@@ -92,12 +203,29 @@
                     </li>
                 @endif
                 <!-- /Users -->
+                <!-- Site Management -->
+                <li class="submenu">
+                    <a class="" href="javascript:void(0)" aria-expanded="false">
+                        <i class="fa fa-cog"></i>
+                        <span class="hide-menu">Site Management</span>
+                        <span class="menu-arrow"></span>
+                    </a>
 
+                    <ul style="display: none;">
+                        <li>
+                            <a href="{{route('website-setting.edit')}}" title="Website Setting" class="sidebar-link {{ (request()->is('admin/setting/website-setting*')) ? 'active' : '' }}">
+                                <span class="hide-menu">Youtube Video</span>
+                            </a>
+                        </li>
+                        
+                    </ul>
+                </li>
+                <!-- /Site management -->
                 <!-- Settings -->
                 @if(auth()->user()->can('file-manager') || auth()->user()->can('currency-list') || auth()->user()->can('websetting-edit') || auth()->user()->can('log-view'))
                     <li class="submenu">
                         <a class="" href="javascript:void(0)" aria-expanded="false">
-                            <i data-feather="settings"></i>
+                            <i class="fa fa-cog"></i>
                             <span class="hide-menu">Setting</span>
                             <span class="menu-arrow"></span>
                         </a>
