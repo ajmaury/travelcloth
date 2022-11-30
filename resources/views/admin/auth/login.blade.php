@@ -35,7 +35,7 @@
 
                         <div class="login-left">
                             @if($setting->website_logo_light != null || !empty($setting->website_logo_light))
-                                <img class="img-fluid" src="{{url('storage/logo/'.$setting->website_logo_light)}}" alt="{{$setting->website_title}}">
+                                <img class="img-fluid" src="{{url('storage/logo/'.$setting->website_logo_dark)}}" alt="{{$setting->website_title}}">
                             @else
                                 <img class="img-fluid" src="{{ url('assets/admin/img/logo-def.png') }}" alt="Logo">
                             @endif
