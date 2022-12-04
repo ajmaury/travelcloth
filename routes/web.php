@@ -27,6 +27,14 @@ use App\Http\Controllers\TestimonialController;
 // Frontend Routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about-us', [HomeController::class, 'about'])->name('about');
+Route::get('/contact-us', [HomeController::class, 'contact'])->name('contact');
+Route::get('/faqs', [HomeController::class, 'faq'])->name('faq');
+Route::get('/book-service', [HomeController::class, 'book_service'])->name('book_service');
+Route::get('/sign-up', [HomeController::class, 'sign_up'])->name('sign_up');
+Route::get('/sign-in', [HomeController::class, 'sign_in'])->name('sign_in');
+Route::get('/privacy', [HomeController::class, 'privacy'])->name('privacy');
+Route::get('/quote', [HomeController::class, 'quote'])->name('quote');
+Route::get('/terms-conditions', [HomeController::class, 'terms'])->name('terms');
 
 
 

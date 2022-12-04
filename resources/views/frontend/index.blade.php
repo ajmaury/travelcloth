@@ -9,7 +9,7 @@
   <div data-anim-child="fade" class="masthead__bg"> <img src="{{ url('assets/fronted/img/masthead/5/bg.svg') }}" alt="image"> </div>
   <div class="container">
     <div class="row">
-      <div class="col-xl-9">
+      <div class="col-xl-7">
         <h1 data-anim-child="slide-up delay-4" class="text-60 lg:text-40 md:text-30">Best Travel <span class="text-blue-1 relative">Experience <span class="-line"><img src="{{ url('assets/fronted/img/general/line.png') }}" alt="image"></span></span></h1>
         <p data-anim-child="slide-up delay-5" class="mt-20">Experience the various exciting tour and travel packages and Make hotel reservations, find<br class="lg:d-none">
           vacation packages, search cheap hotels and events</p>
@@ -94,292 +94,68 @@
   </div>
   <div data-anim-child="fade" class="masthead__image"> <img src="{{ url('assets/fronted/img/masthead/5/1.png') }}" alt="image"> </div>
 </section>
-<section class="layout-pt-md layout-pb-md">
-    <div class="container">
-      <div class="row justify-center text-center">
-        <div class="col-auto">
-          <div class="sectionTitle -md">
-            <h2 class="sectionTitle__title">Choose Tour Types</h2>
-            <p class=" sectionTitle__text mt-5 sm:mt-0">Interdum et malesuada fames ac ante ipsum</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="row y-gap-30 pt-40 sm:pt-20">
-
-        <div class="col-xl col-md-4 col-sm-6">
-
-          <a href="tour-single.html" class="tourTypeCard -type-1 d-block rounded-4 bg-white border-light rounded-4">
-            <div class="tourTypeCard__content text-center pt-60 pb-24 px-30">
-              <i class="icon-camping text-60 sm:text-40 text-blue-1"></i>
-              <h4 class="text-dark-1 text-221 fw-500 mt-50 md:mt-30">Camping</h4>
-              <p class="text-light-1 lh-14 text-14 mt-5">5 Tours From 550$</p>
-            </div>
-          </a>
-
-        </div>
-
-        <div class="col-xl col-md-4 col-sm-6">
-
-          <a href="tour-single.html" class="tourTypeCard -type-1 d-block rounded-4 bg-white border-light rounded-4">
-            <div class="tourTypeCard__content text-center pt-60 pb-24 px-30">
-              <i class="icon-hiking-2 text-60 sm:text-40 text-blue-1"></i>
-              <h4 class="text-dark-1 text-221 fw-500 mt-50 md:mt-30">Trekking</h4>
-              <p class="text-light-1 lh-14 text-14 mt-5">5 Tours From 550$</p>
-            </div>
-          </a>
-
-        </div>
-
-        <div class="col-xl col-md-4 col-sm-6">
-
-          <a href="tour-single.html" class="tourTypeCard -type-1 d-block rounded-4 bg-white border-light rounded-4">
-            <div class="tourTypeCard__content text-center pt-60 pb-24 px-30">
-              <i class="icon-fire text-60 sm:text-40 text-blue-1"></i>
-              <h4 class="text-dark-1 text-221 fw-500 mt-50 md:mt-30">Camp Fire</h4>
-              <p class="text-light-1 lh-14 text-14 mt-5">5 Tours From 550$</p>
-            </div>
-          </a>
-
-        </div>
-
-        <div class="col-xl col-md-4 col-sm-6">
-
-          <a href="tour-single.html" class="tourTypeCard -type-1 d-block rounded-4 bg-white border-light rounded-4">
-            <div class="tourTypeCard__content text-center pt-60 pb-24 px-30">
-              <i class="icon-jeep text-60 sm:text-40 text-blue-1"></i>
-              <h4 class="text-dark-1 text-221 fw-500 mt-50 md:mt-30">Off Road</h4>
-              <p class="text-light-1 lh-14 text-14 mt-5">5 Tours From 550$</p>
-            </div>
-          </a>
-
-        </div>
-
-        <div class="col-xl col-md-4 col-sm-6">
-
-          <a href="tour-single.html" class="tourTypeCard -type-1 d-block rounded-4 bg-white border-light rounded-4">
-            <div class="tourTypeCard__content text-center pt-60 pb-24 px-30">
-              <i class="icon-traveller text-60 sm:text-40 text-blue-1"></i>
-              <h4 class="text-dark-1  fw-500 mt-50 md:mt-30 text-221">Exploring</h4>
-              <p class="text-light-1 lh-14 text-14 mt-5">5 Tours From 550$</p>
-            </div>
-          </a>
-
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-
 <section class="layout-pt-lg layout-pb-md">
-    <div data-anim-wrap="" class="container animated">
-      <div data-anim-child="slide-up delay-1" class="row justify-center text-center is-in-view">
-        <div class="col-auto">
-          <div class="sectionTitle -md">
-            <h2 class="sectionTitle__title">Benefits</h2>
-            <p class=" sectionTitle__text mt-5 sm:mt-0">These popular destinations have a lot to offer</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="row y-gap-40 justify-between pt-40 sm:pt-20">
-
-        <div data-anim-child="slide-up delay-2" class="col-lg-4 col-sm-6 is-in-view">
-
-          <div class="featureIcon -type-1 -hover-shadow px-50 py-50 lg:px-24 lg:py-15">
-            <div class="d-flex justify-center">
-              <img src="{{ url('assets/fronted/img/featureIcons/1/1.svg') }}" alt="image" class="js-lazy loaded" data-ll-status="loaded">
-            </div>
-
-            <div class="text-center mt-30">
-              <h4 class="text-18 fw-500">Best Price Guarantee</h4>
-              <p class="text-15 mt-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-          </div>
-
-        </div>
-
-        <div data-anim-child="slide-up delay-3" class="col-lg-4 col-sm-6 is-in-view">
-
-          <div class="featureIcon -type-1 -hover-shadow px-50 py-50 lg:px-24 lg:py-15">
-            <div class="d-flex justify-center">
-              <img src="{{ url('assets/fronted/img/featureIcons/1/2.svg') }}" alt="image" class="js-lazy loaded" data-ll-status="loaded">
-            </div>
-
-            <div class="text-center mt-30">
-              <h4 class="text-18 fw-500">Easy &amp; Quick Booking</h4>
-              <p class="text-15 mt-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-          </div>
-
-        </div>
-
-        <div data-anim-child="slide-up delay-4" class="col-lg-4 col-sm-6 is-in-view">
-
-          <div class="featureIcon -type-1 -hover-shadow px-50 py-50 lg:px-24 lg:py-15">
-            <div class="d-flex justify-center">
-              <img src="{{ url('assets/fronted/img/featureIcons/1/3.svg') }}" alt="image" class="js-lazy loaded" data-ll-status="loaded">
-            </div>
-
-            <div class="text-center mt-30">
-              <h4 class="text-18 fw-500">Customer Care 24/7</h4>
-              <p class="text-15 mt-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-<section class="layout-pt-md layout-pb-md">
-    <div data-anim-wrap="" class="container animated">
-      <div data-anim="slide-up delay-1" class="row justify-center text-center is-in-view">
-        <div class="col-auto">
-          <div class="sectionTitle -md">
-            <h2 class="sectionTitle__title">Explore Hot Locations</h2> 
-          </div>
-        </div>
-      </div>
-
-      <div class="row y-gap-30 pt-40 sm:pt-20">
-
-        <div data-anim="slide-up delay-3" class="col-lg-4 col-sm-6 is-in-view">
-
-          <a href="" class="blogCard -type-1 d-block ">
-            <div class="blogCard__image">
-              <div class="ratio ratio-4:3 rounded-4 rounded-8">
-                <img class="img-ratio js-lazy loaded" src="{{ url('assets/fronted/img/blog/1.png') }}" alt="image" data-ll-status="loaded">
-              </div>
-            </div>
-
-            <div class="mt-20">
-              <h4 class="text-dark-1 text-18 fw-500">10 European ski destinations you should visit this winter</h4>
-              <div class="text-light-1 text-15 lh-14 mt-5">Mumbai</div>
-            </div>
-          </a>
-
-        </div>
-
-        <div data-anim="slide-up delay-4" class="col-lg-4 col-sm-6 is-in-view">
-
-          <a href="" class="blogCard -type-1 d-block ">
-            <div class="blogCard__image">
-              <div class="ratio ratio-4:3 rounded-4 rounded-8">
-                <img class="img-ratio js-lazy loaded" src="{{ url('assets/fronted/img/blog/2.png') }}" alt="image" data-ll-status="loaded">
-              </div>
-            </div>
-
-            <div class="mt-20">
-              <h4 class="text-dark-1 text-18 fw-500">Booking travel during Corona: good advice in an uncertain time</h4>
-              <div class="text-light-1 text-15 lh-14 mt-5">Delhi</div>
-            </div>
-          </a>
-
-        </div>
-
-        <div data-anim="slide-up delay-5" class="col-lg-4 col-sm-6 is-in-view">
-
-          <a href="" class="blogCard -type-1 d-block ">
-            <div class="blogCard__image">
-              <div class="ratio ratio-4:3 rounded-4 rounded-8">
-                <img class="img-ratio js-lazy loaded" src="{{ url('assets/fronted/img/blog/1.png') }}" alt="image" data-ll-status="loaded">
-              </div>
-            </div>
-
-            <div class="mt-20">
-              <h4 class="text-dark-1 text-18 fw-500">Where can I go? 5 amazing countries that are open right now</h4>
-              <div class="text-light-1 text-15 lh-14 mt-5">Goa</div>
-            </div>
-          </a>
-
-        </div>
-
-      </div>
-    </div>
-  </section>
- 
-
-
-<section class="layout-pt-lg layout-pb-md">
-    <div data-anim-wrap="" class="container animated">
-      <div data-anim-child="slide-up delay-1" class="row justify-center text-center is-in-view">
-        <div class="col-auto">
-          <div class="sectionTitle -md">
-            <h2 class="sectionTitle__title">Deals &amp; Discounts</h2>
-            <p class=" sectionTitle__text mt-5 sm:mt-0">These popular destinations have a lot to offer</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="row y-gap-20 pt-40">
-        <div data-anim-child="slide-left delay-3" class="col-lg-4 col-sm-6 is-in-view">
-
-          <div class="ctaCard -type-1 rounded-4 ">
-            <div class="ctaCard__image ratio ratio-41:45">
-              <img class="img-ratio js-lazy loaded" src="{{ url('assets/fronted/img/backgrounds/1.png') }}" alt="image" data-ll-status="loaded">
-            </div>
-
-            <div class="ctaCard__content py-50 px-50 lg:py-30 lg:px-30">
-
-
-              <h4 class="text-30 lg:text-24 text-white">Things To Do On<br> Your Trip</h4>
-
-              <div class="d-inline-block mt-30">
-                <a href="#" class="button px-48 py-15 -blue-1 -min-180 bg-white text-dark-1">Experiences</a>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <div data-anim-child="slide-left delay-4" class="col-lg-4 col-sm-6 is-in-view">
-
-          <div class="ctaCard -type-1 rounded-4 ">
-            <div class="ctaCard__image ratio ratio-41:45">
-              <img class="img-ratio js-lazy loaded" src="{{ url('assets/fronted/img/backgrounds/3.png') }}" alt="image" data-ll-status="loaded">
-            </div>
-
-            <div class="ctaCard__content py-50 px-50 lg:py-30 lg:px-30">
-
-
-              <h4 class="text-30 lg:text-24 text-white">Let Your Curiosity<br>Do The Booking</h4>
-
-              <div class="d-inline-block mt-30">
-                <a href="#" class="button px-48 py-15 -blue-1 -min-180 bg-white text-dark-1">Learn More</a>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <div data-anim-child="slide-left delay-5" class="col-lg-4 col-sm-6 is-in-view">
-
-          <div class="ctaCard -type-1 rounded-4 ">
-            <div class="ctaCard__image ratio ratio-41:45">
-              <img class="img-ratio js-lazy loaded" src="{{ url('assets/fronted/img/backgrounds/2.png') }}" alt="image" data-ll-status="loaded">
-            </div>
-
-            <div class="ctaCard__content py-50 px-50 lg:py-30 lg:px-30">
-
-              <div class="text-15 fw-500 text-white mb-10">Enjoy Summer Deals</div>
-
-
-              <h4 class="text-30 lg:text-24 text-white">Up to 70% Discount!</h4>
-
-              <div class="d-inline-block mt-30">
-                <a href="#" class="button px-48 py-15 -blue-1 -min-180 bg-white text-dark-1">Learn More</a>
-              </div>
-            </div>
-          </div>
-
+  <div data-anim-wrap="" class="container animated">
+    <div data-anim-child="slide-up delay-1" class="row justify-center text-center is-in-view">
+      <div class="col-auto">
+        <div class="sectionTitle -md">
+          <h2 class="sectionTitle__title">Benefits</h2>
+          <p class=" sectionTitle__text mt-5 sm:mt-0">These popular destinations have a lot to offer</p>
         </div>
       </div>
     </div>
-  </section>
+
+    <div class="row y-gap-40 justify-between pt-40 sm:pt-20">
+
+      <div data-anim-child="slide-up delay-2" class="col-lg-4 col-sm-6 is-in-view">
+
+        <div class="featureIcon -type-1 -hover-shadow px-50 py-50 lg:px-24 lg:py-15">
+          <div class="d-flex justify-center">
+            <img src="{{ url('assets/fronted/img/featureIcons/1/1.svg') }}" alt="image" class="js-lazy loaded" data-ll-status="loaded">
+          </div>
+
+          <div class="text-center mt-30">
+            <h4 class="text-18 fw-500">Best Price Guarantee</h4>
+            <p class="text-15 mt-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div data-anim-child="slide-up delay-3" class="col-lg-4 col-sm-6 is-in-view">
+
+        <div class="featureIcon -type-1 -hover-shadow px-50 py-50 lg:px-24 lg:py-15">
+          <div class="d-flex justify-center">
+            <img src="{{ url('assets/fronted/img/featureIcons/1/2.svg') }}" alt="image" class="js-lazy loaded" data-ll-status="loaded">
+          </div>
+
+          <div class="text-center mt-30">
+            <h4 class="text-18 fw-500">Easy &amp; Quick Booking</h4>
+            <p class="text-15 mt-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div data-anim-child="slide-up delay-4" class="col-lg-4 col-sm-6 is-in-view">
+
+        <div class="featureIcon -type-1 -hover-shadow px-50 py-50 lg:px-24 lg:py-15">
+          <div class="d-flex justify-center">
+            <img src="{{ url('assets/fronted/img/featureIcons/1/3.svg') }}" alt="image" class="js-lazy loaded" data-ll-status="loaded">
+          </div>
+
+          <div class="text-center mt-30">
+            <h4 class="text-18 fw-500">Customer Care 24/7</h4>
+            <p class="text-15 mt-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <section class="layout-pt-md layout-pb-lg">
   <div class="container">
     <div class="row y-gap-15 justify-center text-center">

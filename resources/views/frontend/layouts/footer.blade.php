@@ -57,11 +57,19 @@
               </div>
               <div class="col-lg-6 col-sm-6">
                 <h5 class="text-16 fw-500 mb-30">Company</h5>
-                <div class="d-flex y-gap-5 flex-column"> <a href="about.html">About Us</a> <a href="careers.html">Careers</a> <a href="blog.html">Blog</a> <a href="press.html">Press</a> <a href="gift.html">Gift Cards</a>  </div>
+                <div class="d-flex y-gap-5 flex-column"> 
+                  <a href="about.html">About Us</a> 
+                  <a href="careers.html">Careers</a> 
+                  <a href="agent.html">Become Agent</a> 
+                  <a href="hotel.html">Become Hotel</a> 
+                  <a href="associated.html">Become Associated</a>  
+                </div>
               </div>
               <div class="col-lg-6 col-sm-6">
                 <h5 class="text-16 fw-500 mb-30">Support</h5>
-                <div class="d-flex y-gap-5 flex-column"> <a href="contactus.html">Contact</a>   <a href="privacy.html">Privacy Policy</a> <a href="terms.html">Terms and Conditions</a> <a href="sitmap.html">Sitemap</a> </div>
+                <div class="d-flex y-gap-5 flex-column"> <a href="{{ route('contact') }}">Contact</a>   
+                  <a href="{{ route('privacy') }}">Privacy Policy</a> 
+                  <a href="{{ route('terms') }}">Terms and Conditions</a> <a href="#">Sitemap</a> </div>
               </div>
                
             </div>

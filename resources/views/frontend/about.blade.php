@@ -3,11 +3,9 @@
 @section('page_title')
     About Us
 @endsection
-@section('inner_top_padding')
-<div class="header-margin"></div>
-@endsection
 @section('content')
-<section class="section-bg layout-pt-lg layout-pb-lg">
+
+  <section class="section-bg layout-pt-lg layout-pb-lg">
     <div class="section-bg__item col-12">
       <img src="{{ url('assets/fronted/img/pages/about/1.png') }}" alt="image">
     </div>
@@ -21,7 +19,6 @@
       </div>
     </div>
   </section>
-
   <section class="layout-pt-lg layout-pb-md">
     <div data-anim-wrap class="container">
       <div data-anim-child="slide-up delay-1" class="row justify-center text-center">
