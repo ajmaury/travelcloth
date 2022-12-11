@@ -52,12 +52,11 @@
 
                 <div class="menu js-navList">
                 <ul class="menu__nav text-dark-1 -is-active">
-
-                    <li> <a href="about.html"> About Us</a></li>
-                <li> <a href="bookservice.html"> Book Service</a></li>
-                <li> <a href="bookservice.html"> Quick Quote</a></li>
-                <li> <a href="contactus.html">Contact Us</a></li>
-                <li> <a href="faq.html">FAQ</a></li>
+                    <li> <a href="{{ route('about') }}"> About Us</a></li>
+                    <li> <a href="{{ route('book_service') }}"> Book Service</a></li>
+                    <li> <a href="{{ route('quote') }}"> Quick Quote</a></li>
+                    <li> <a href="{{ route('contact') }}">Contact Us</a></li>
+                    <li> <a href="{{ route('faq') }}">FAQ</a></li>
                 </ul>
                 </div>
 
@@ -88,12 +87,11 @@
                 <div class="h-full px-30 py-30 sm:px-0 sm:py-10">
                 <div class="menu js-navList">
                     <ul class="menu__nav  -is-active">
-
-                        <li> <a href="about.html"> About Us</a></li>
-                <li> <a href="bookservice.html"> Book Service</a></li>
-                <li> <a href="#">Quick Quote</a></li>
-                <li> <a href="contactus.html">Contact Us</a></li>
-                <li> <a href="faq.html">FAQ</a></li>
+                        <li> <a href="{{ route('about') }}"> About Us</a></li>
+                        <li> <a href="{{ route('book_service') }}"> Book Service</a></li>
+                        <li> <a href="{{ route('quote') }}"> Quick Quote</a></li>
+                        <li> <a href="{{ route('contact') }}">Contact Us</a></li>
+                        <li> <a href="{{ route('faq') }}">FAQ</a></li>
                     </ul>
                 </div>
                 </div>
@@ -107,7 +105,7 @@
         <div class="col-auto">
         <div class="d-flex items-center">
             <div class="header__buttons d-flex items-center is-menu-opened-hide">
-            <a href="login.html" class="button h-50 px-30 fw-400 text-14 bg-blue-1 text-white ml-20 sm:ml-0"><i class="icon-user"></i> &nbsp;Sign In</a>
+            <a href="{{ route('customer.sign_in') }}" class="button h-50 px-30 fw-400 text-14 bg-blue-1 text-white ml-20 sm:ml-0"><i class="icon-user"></i> &nbsp;Sign In</a>
             </div>
         </div>
         </div>

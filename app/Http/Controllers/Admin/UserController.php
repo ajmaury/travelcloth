@@ -132,7 +132,7 @@ class UserController extends Controller
 		$roles = Role::all();
 		return view('admin.users.create',compact('roles'));
 	}
-
+	
 	public function store(Request $request)
 	{
 		$rules = [

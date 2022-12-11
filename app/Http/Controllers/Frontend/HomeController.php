@@ -32,14 +32,7 @@ class HomeController extends Controller
     {
         return view('frontend.bookservice');
     }
-    public function sign_up()
-    {
-        return view('frontend.signup');
-    }
-    public function sign_in()
-    {
-        return view('frontend.signin');
-    }
+    
     public function privacy()
     {
         return view('frontend.privacy');

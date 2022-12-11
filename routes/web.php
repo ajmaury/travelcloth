@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route; 
 use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Frontend\CustomerControler;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -30,11 +31,15 @@ Route::get('/about-us', [HomeController::class, 'about'])->name('about');
 Route::get('/contact-us', [HomeController::class, 'contact'])->name('contact');
 Route::get('/faqs', [HomeController::class, 'faq'])->name('faq');
 Route::get('/book-service', [HomeController::class, 'book_service'])->name('book_service');
-Route::get('/sign-up', [HomeController::class, 'sign_up'])->name('sign_up');
-Route::get('/sign-in', [HomeController::class, 'sign_in'])->name('sign_in');
 Route::get('/privacy', [HomeController::class, 'privacy'])->name('privacy');
 Route::get('/quote', [HomeController::class, 'quote'])->name('quote');
 Route::get('/terms-conditions', [HomeController::class, 'terms'])->name('terms');
+//customer
+Route::get('/sign-up', [CustomerControler::class, 'index'])->name('customer.sign_up');
+Route::get('/sign-in', [CustomerControler::class, 'sign_in'])->name('customer.sign_in');
+Route::post('/sign-up', [CustomerControler::class, 'store'])->name('customer.register');
+Route::post('/verify-cotp', [CustomerControler::class, 'verify_otp'])->name('customer.verify_otp');
+Route::get('/resend-cotp', [CustomerControler::class, 'resend_otp'])->name('customer.resend_otp');
 
 
 
