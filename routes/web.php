@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Route; 
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\CustomerControler;
+use App\Http\Controllers\Frontend\PartnerAgentController;
+use App\Http\Controllers\Frontend\EmployeeController;
+use App\Http\Controllers\Frontend\HotelPartnerController;
+use App\Http\Controllers\Frontend\AssociateController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -10,7 +14,6 @@ use App\Http\Controllers\UploadFileController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\PermissionController;
-use App\Http\Controllers\Admin\FileManagerController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\CMSCategoryController;
 use App\Http\Controllers\TestimonialController;
@@ -40,6 +43,31 @@ Route::get('/sign-in', [CustomerControler::class, 'sign_in'])->name('customer.si
 Route::post('/sign-up', [CustomerControler::class, 'store'])->name('customer.register');
 Route::post('/verify-cotp', [CustomerControler::class, 'verify_otp'])->name('customer.verify_otp');
 Route::get('/resend-cotp', [CustomerControler::class, 'resend_otp'])->name('customer.resend_otp');
+Route::get('/my-account', [CustomerControler::class, 'my_account'])->name('customer.my_account');
+//partneragent 
+Route::get('/partneragent/sign-up', [PartnerAgentController::class, 'index'])->name('partneragent.sign_up');
+Route::get('/partneragent/sign-in', [PartnerAgentController::class, 'sign_in'])->name('partneragent.sign_in');
+Route::post('/partneragent/sign-up', [PartnerAgentController::class, 'store'])->name('partneragent.register');
+Route::post('/partneragent/verify-cotp', [PartnerAgentController::class, 'verify_otp'])->name('partneragent.verify_otp');
+Route::get('/partneragent/resend-cotp', [PartnerAgentController::class, 'resend_otp'])->name('partneragent.resend_otp');
+//hotelpartner
+Route::get('/hotelpartner/sign-up', [HotelPartnerController::class, 'index'])->name('hotelpartner.sign_up');
+Route::get('/hotelpartner/sign-in', [HotelPartnerController::class, 'sign_in'])->name('hotelpartner.sign_in');
+Route::post('/hotelpartner/sign-up', [HotelPartnerController::class, 'store'])->name('hotelpartner.register');
+Route::post('/hotelpartner/verify-cotp', [HotelPartnerController::class, 'verify_otp'])->name('hotelpartner.verify_otp');
+Route::get('/hotelpartner/resend-cotp', [HotelPartnerController::class, 'resend_otp'])->name('hotelpartner.resend_otp');
+//employee
+Route::get('/employee/sign-up', [EmployeeController::class, 'index'])->name('employee.sign_up');
+Route::get('/employee/sign-in', [EmployeeController::class, 'sign_in'])->name('employee.sign_in');
+Route::post('/employee/sign-up', [EmployeeController::class, 'store'])->name('employee.register');
+Route::post('/employee/verify-cotp', [EmployeeController::class, 'verify_otp'])->name('employee.verify_otp');
+Route::get('/employee/resend-cotp', [EmployeeController::class, 'resend_otp'])->name('employee.resend_otp');
+//Associate
+Route::get('/associate/sign-up', [AssociateController::class, 'index'])->name('associate.sign_up');
+Route::get('/associate/sign-in', [AssociateController::class, 'sign_in'])->name('associate.sign_in');
+Route::post('/associate/sign-up', [AssociateController::class, 'store'])->name('associate.register');
+Route::post('/associate/verify-cotp', [AssociateController::class, 'verify_otp'])->name('associate.verify_otp');
+Route::get('/associate/resend-cotp', [AssociateController::class, 'resend_otp'])->name('associate.resend_otp');
 
 
 

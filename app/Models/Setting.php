@@ -16,6 +16,7 @@ class Setting extends Model
      *
      * @var array
      */
+    
     protected $fillable = [
         'website_title',
         'website_logo_dark',

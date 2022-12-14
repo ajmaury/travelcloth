@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Brian2694\Toastr\Facades\Toastr;
 use Session;
-class CustomerControler extends Controller
+class HotelPartnerController extends Controller
 {
     public function __construct()
     {
@@ -16,11 +16,11 @@ class CustomerControler extends Controller
     }
     public function index()
     {
-        return view('frontend.customer.signup');
+        return view('frontend.hotelpartner.signup');
     }
     public function sign_in()
     {
-        return view('frontend.customer.signin');
+        return view('frontend.hotelpartner.signin');
     }
     public function store(Request $request)
     {
@@ -38,13 +38,12 @@ class CustomerControler extends Controller
                 'error' => $validator->errors()
             ]);
         }else{
-            
             $request['otp'] = mt_rand(1000,9999);
             Session::put('userdata', $request->input());
             $otp=Session::get('userdata')['otp'];
             $sms = new smsApi();
             $sms->registerApi($request->mobile,$otp);
-            $otp_page = view('frontend.customer.register_otp')->render();
+            $otp_page = view('frontend.hotelpartner.register_otp')->render();
             return response()->json([
                 'status' => 200,
                 'message' => $otp_page
@@ -65,12 +64,12 @@ class CustomerControler extends Controller
         }else{
             $session_data=Session::get('userdata');
             if($request->otp == $session_data['otp']){
-                $data = ['accountId'=>'TCC'.mt_rand(1000,9999)];
+                $data = ['accountId'=>'TCH'.mt_rand(1000,9999)];
                 $output = array_merge($session_data,$data);
                 unset($output['_token']);
                 unset($output['otp']);
                 $output['password'] = Hash::make($session_data['password']);
-                $output['account_type'] = 0;
+                $output['account_type'] = 3;
                 Customer::insert($output);
                 Session::forget('userdata');
                 return response()->json([
@@ -102,9 +101,5 @@ class CustomerControler extends Controller
                 'error' => ['otp'=>'OTP not Sent']
             ]);
         }
-    }
-    public function my_account()
-    {
-        return view('frontend.customer.my_account');
     }
 }

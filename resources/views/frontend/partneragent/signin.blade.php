@@ -15,8 +15,7 @@ Sign In
           <div class="row y-gap-20">
             <div class="col-12">
               <h1 class="text-22 fw-500">Welcome back</h1>
-              <p class="mt-10">Don't have an account yet? <a href="{{ route('customer.sign_up') }}"
-                  class="text-blue-1">Sign up
+              <p class="mt-10">Don't have an account yet? <a href="{{ route('partneragent.sign_up') }}" class="text-blue-1">Sign up
                   for free</a></p>
             </div>
 
