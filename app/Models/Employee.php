@@ -11,6 +11,7 @@ class Employee extends Model
     protected $table = 'customers';
     protected $fillable = [
         'accountId',
+        'employeeId',
         'fname',
         'lname',
         'email',

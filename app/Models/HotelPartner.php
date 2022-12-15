@@ -11,6 +11,7 @@ class HotelPartner extends Model
     protected $table = 'customers';
     protected $fillable = [
         'accountId',
+        'hotelName',
         'fname',
         'lname',
         'email',

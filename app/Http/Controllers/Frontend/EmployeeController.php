@@ -28,6 +28,7 @@ class EmployeeController extends Controller
         $validator = Validator::make($request->all(),[
             'fname' => 'required|max:50',
             'lname' => 'required|max:50',
+            'employeeId' => 'required',
             'email' => 'required|email|unique:customers',
             'mobile' => 'required|numeric|unique:customers',
             'password' => 'required|min:6|max:50', 

@@ -33,6 +33,13 @@ Sign Up
               </div>
               <div class="col-12">
                 <div class="form-input">
+                  <input type="text" name="companyName" id="companyName">
+                  <label class="lh-1 text-14 text-light-1">Company Name</label>
+                </div>
+                <span class="companyName_err error"></span>
+              </div>
+              <div class="col-12">
+                <div class="form-input">
                   <input type="text" name="fname" id="fname">
                   <label class="lh-1 text-14 text-light-1">First Name</label>
                 </div>

@@ -11,6 +11,7 @@ class PartnerAgent extends Model
     protected $table = 'customers';
     protected $fillable = [
         'accountId',
+        'companyName',
         'fname',
         'lname',
         'email',
