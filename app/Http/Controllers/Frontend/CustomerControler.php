@@ -107,4 +107,16 @@ class CustomerControler extends Controller
     {
         return view('frontend.customer.my_account');
     }
+    public function order()
+    {
+        return view('frontend.customer.order');
+    }
+    public function quote()
+    {
+        return view('frontend.customer.quote');
+    }
+    public function profile()
+    {
+        return view('frontend.customer.profile');
+    }
 }

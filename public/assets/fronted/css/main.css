@@ -3576,12 +3576,12 @@ grid-template-columns:1fr .6fr .6fr auto
 	opacity: 1
 }
 :root {
---dashboard-width:300px
+--dashboard-width:220px
 }
 
 @media (max-width:1199px) {
 :root {
---dashboard-width:250px
+--dashboard-width:200px
 }
 }
 .dashboard {
@@ -3626,12 +3626,12 @@ grid-template-columns:1fr .6fr .6fr auto
 }
 .dashboard__content {
 	width: 100%;
-	padding: 60px 60px 0
+	padding: 20px 20px 0
 }
 
 @media (max-width:767px) {
 .dashboard__content {
-	padding: 30px 30px 0
+	padding: 20px 20px 0
 }
 }
 
@@ -3648,7 +3648,7 @@ grid-template-columns:1fr .6fr .6fr auto
 	z-index: 100;
 	width: var(--dashboard-width);
 	height: calc(100% - 90px);
-	padding: 60px 30px 40px;
+	padding: 0px 5px 20px;
 	will-change: transform;
 	transition: all .5s cubic-bezier(.215, .61, .355, 1)
 }

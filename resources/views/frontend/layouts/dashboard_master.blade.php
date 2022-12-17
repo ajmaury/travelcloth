@@ -33,7 +33,7 @@ $setting = \App\Models\Setting::find(1);
 <body data-barba="wrapper">
     <div class="preloader js-preloader">
         <div class="preloader__wrap">
-            <div class="preloader__icon"> <img src="img/general/luggage.svg" alt="luggage" width="38" height="38">
+            <div class="preloader__icon"> <img src="{{ url('assets/fronted/img/general/luggage.svg') }}" alt="luggage" width="38" height="38">
             </div>
         </div>
         <div class="preloader__title">Travel Cloth</div>
@@ -42,9 +42,8 @@ $setting = \App\Models\Setting::find(1);
     @include('frontend.layouts.dashboard_header')
 
     <div class="dashboard" data-x="dashboard" data-x-toggle="-is-sidebar-open">
-        @include('frontend.layouts.dashboard_desktop_sidebar')
         <div class="dashboard" data-x="dashboard" data-x-toggle="-is-sidebar-open">
-            @include('frontend.layouts.dashboard_mobile_sidebar')
+            @include('frontend.layouts.dashboard_sidebar')
             @yield('content')
         </div>
     </div>

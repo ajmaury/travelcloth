@@ -35,7 +35,7 @@ Route::get('/contact-us', [HomeController::class, 'contact'])->name('contact');
 Route::get('/faqs', [HomeController::class, 'faq'])->name('faq');
 Route::get('/book-service', [HomeController::class, 'book_service'])->name('book_service');
 Route::get('/privacy', [HomeController::class, 'privacy'])->name('privacy');
-Route::get('/quote', [HomeController::class, 'quote'])->name('quote');
+Route::get('/quote-generate', [HomeController::class, 'quote'])->name('quote');
 Route::get('/terms-conditions', [HomeController::class, 'terms'])->name('terms');
 //customer
 Route::get('/sign-up', [CustomerControler::class, 'index'])->name('customer.sign_up');
@@ -44,6 +44,9 @@ Route::post('/sign-up', [CustomerControler::class, 'store'])->name('customer.reg
 Route::post('/verify-cotp', [CustomerControler::class, 'verify_otp'])->name('customer.verify_otp');
 Route::get('/resend-cotp', [CustomerControler::class, 'resend_otp'])->name('customer.resend_otp');
 Route::get('/my-account', [CustomerControler::class, 'my_account'])->name('customer.my_account');
+Route::get('/order', [CustomerControler::class, 'order'])->name('customer.order');
+Route::get('/quote', [CustomerControler::class, 'quote'])->name('customer.quote');
+Route::get('/profile', [CustomerControler::class, 'profile'])->name('customer.profile');
 //partneragent 
 Route::get('/partneragent/sign-up', [PartnerAgentController::class, 'index'])->name('partneragent.sign_up');
 Route::get('/partneragent/sign-in', [PartnerAgentController::class, 'sign_in'])->name('partneragent.sign_in');
