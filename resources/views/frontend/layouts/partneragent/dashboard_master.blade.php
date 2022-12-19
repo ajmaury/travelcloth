@@ -39,10 +39,10 @@ $setting = \App\Models\Setting::find(1);
         <div class="preloader__title">Travel Cloth</div>
     </div>
     <div class="header-margin"></div>
-    @include('frontend.layouts.dashboard_header')
+    @include('frontend.layouts.partneragent.dashboard_header')
 
     <div class="dashboard" data-x="dashboard" data-x-toggle="-is-sidebar-open">
-        @include('frontend.layouts.dashboard_sidebar')
+        @include('frontend.layouts.partneragent.dashboard_sidebar')
         @yield('content')
     </div>
 

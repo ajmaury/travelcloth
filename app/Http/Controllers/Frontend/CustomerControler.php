@@ -1,15 +1,20 @@
 <?php
 namespace App\Http\Controllers\Frontend;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Customer;
 use App\Models\smsApi;
 use App\Http\Controllers\Controller;
+use App\Providers\RouteServiceProvider;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Brian2694\Toastr\Facades\Toastr;
 use Session;
+
 class CustomerControler extends Controller
 {
+    use AuthenticatesUsers;
     public function __construct()
     {
         $this->middleware('web');
@@ -118,5 +123,13 @@ class CustomerControler extends Controller
     public function profile()
     {
         return view('frontend.customer.profile');
+    }
+    public function login_go(Request $request)
+    {
+        if (Auth::attempt(['email' => $request->mobile, 'password' => $request->password])) {
+            dd("success");
+        }else{
+            dd("fail");
+        }
     }
 }

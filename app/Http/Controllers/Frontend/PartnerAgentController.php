@@ -105,4 +105,24 @@ class PartnerAgentController extends Controller
             ]);
         }
     }
+    public function my_account()
+    {
+        return view('frontend.partneragent.my_account');
+    }
+    public function order()
+    {
+        return view('frontend.partneragent.order');
+    }
+    public function refer()
+    {
+        return view('frontend.partneragent.refer');
+    }
+    public function add_refer()
+    {
+        return view('frontend.partneragent.add_refer');
+    }
+    public function profile()
+    {
+        return view('frontend.partneragent.profile');
+    }
 }

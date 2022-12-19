@@ -103,4 +103,24 @@ class HotelPartnerController extends Controller
             ]);
         }
     }
+    public function my_account()
+    {
+        return view('frontend.hotelpartner.my_account');
+    }
+    public function order()
+    {
+        return view('frontend.hotelpartner.order');
+    }
+    public function refer()
+    {
+        return view('frontend.hotelpartner.refer');
+    }
+    public function add_refer()
+    {
+        return view('frontend.hotelpartner.add_refer');
+    }
+    public function profile()
+    {
+        return view('frontend.hotelpartner.profile');
+    }
 }
