@@ -22,20 +22,10 @@ class RedirectIfAuthenticated
         $guards = empty($guards) ? [null] : $guards;
 
         foreach ($guards as $guard) {
-
             if (Auth::guard($guard)->check()) {
-                if(auth()->guard() == 'patient'){
-                    return redirect('/patient/dashboard');
-                }
-
                 return redirect(RouteServiceProvider::HOME);
             }
-
         }
-
-
-                
-
         return $next($request);
     }
 }

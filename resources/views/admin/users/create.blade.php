@@ -46,15 +46,8 @@
             <div class="row">
                 <div class="col-md-4 col-sm-12" style="margin: auto;">
                     <div class="input-group mb-5">
-                            <img src="" alt="..." id="output" class="img-thumbnail rounded mx-auto d-block mb-3" onerror="this.src='{{ asset('assets/admin/img/default-user.png') }}';">
-
-                        <input type="text" hidden id="image1" class="form-control" name="image">
-                        <div class="input-group-append" style="width: 100%;">
-                            <button class="btn btn-secondary btn-lg btn-block" type="button" id="button-image">
-                            <i data-feather="image" class="feather-icon"></i>
-                            Select User's Image
-                            </button>
-                        </div>
+                        <img src="" alt="..." id="output" class="img-thumbnail rounded mx-auto d-block mb-3" onerror="this.src='{{ asset('assets/admin/img/default-user.png') }}';">
+                        <input type="file" accept="image/*" id="image1" class="form-control" name="image" onchange="loadFileImageFront(event)">
                     </div>
                 </div>
             </div>  <!-- /row end -->
@@ -166,27 +159,5 @@
 		var output = document.getElementById('output');
 		output.src = URL.createObjectURL(event.target.files[0]);
 	};
-</script>
-
-<script>
-	document.addEventListener("DOMContentLoaded", function() {
-		document.getElementById('button-image').addEventListener('click', (event) => {
-
-			event.preventDefault();
-			inputId = 'image1';
-			window.open('/file-manager/fm-button', 'fm', 'width=1400,height=800');
-
-		});
-	});
-
-	// input
-	let inputId = '';
-	let output = 'output';
-
-	// set file link
-	function fmSetLink($url) {
-		document.getElementById(inputId).value = $url;
-		document.getElementById(output).src = $url;
-	}
 </script>
 @endpush

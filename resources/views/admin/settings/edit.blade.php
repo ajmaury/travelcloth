@@ -103,18 +103,12 @@
 												<label for="website_title" class="required">Website Logo Dark:</label>
 												<div class="">
 													@if(!empty($setting->website_logo_dark))
-														<img src="{{ $setting->website_logo_dark }}" alt="..." id="website_logo_dark_output" class="img-thumbnail rounded mb-3"  onerror="this.src='{{ asset('assets/admin/img/logo-def.png') }}';">
+														<img src="{{ url('/storage/logo/'.$setting->website_logo_dark) }}" style="height: 100px" alt="..." id="website_logo_dark_output" class="img-thumbnail rounded mb-3"  onerror="this.src='{{ asset('assets/admin/img/logo-def.png') }}';">
 													@else
-														<img src="" alt="..." id="website_logo_dark_output" class="img-thumbnail rounded mb-3" onerror="this.src='{{ asset('assets/admin/img/logo-def.png') }}';">
+													<img src="" style="height: 100px" alt="..." id="website_logo_dark_output" class="img-thumbnail rounded mx-auto d-block mb-3" onerror="this.src='{{ asset('assets/admin/img/logo-def.png') }}';">
 													@endif
-
-													<input type="text" hidden id="website_logo_dark" class="form-control" name="website_logo_dark">
-													<div class="" style="width: 100%;">
-														<button class="btn btn-secondary" type="button" id="website_logo_dark_button_image">
-														<i data-feather="image" class="feather-icon"></i>
-														Change Logo Image
-														</button>
-													</div>
+													
+													<input type="file" accept="image/*"  class="form-control" name="website_logo_dark" onchange="loadFileImageLogoDark(event)">
 												</div>
 											</div>
 										</div>
@@ -126,20 +120,15 @@
 										<div class="card-body text-center">
 											<div class="form-group">
 												<label for="website_title" class="required">Website Logo Light:</label>
-												<div class="">											
+												
+												<div class="">
 													@if(!empty($setting->website_logo_light))
-														<img src="{{ $setting->website_logo_light }}" alt="..." id="website_logo_light_output" class="img-thumbnail rounded mb-3"  onerror="this.src='{{ asset('assets/admin/img/logo-def.png') }}';" style="background-color: #ccc;">
+														<img src="{{ url('/storage/logo/'.$setting->website_logo_light) }}" style="height: 100px" alt="..." id="website_logo_light_output" class="img-thumbnail rounded mb-3"  onerror="this.src='{{ asset('assets/admin/img/logo-def.png') }}';">
 													@else
-														<img src="" alt="..." id="website_logo_light_output" class="img-thumbnail rounded mb-3" onerror="this.src='{{ asset('assets/admin/img/logo-def.png') }}';" style="background-color: #ccc;">
+													<img src="" style="height: 100px" alt="..." id="website_logo_light_output" class="img-thumbnail rounded mx-auto d-block mb-3" onerror="this.src='{{ asset('assets/admin/img/logo-def.png') }}';">
 													@endif
-
-													<input type="text" hidden id="website_logo_light" class="form-control" name="website_logo_light">
-													<div class="" style="width: 100%;">
-														<button class="btn btn-secondary" type="button" id="website_logo_light_button_image">
-														<i data-feather="image" class="feather-icon"></i>
-														Change Logo Image
-														</button>
-													</div>
+													
+													<input type="file" accept="image/*"  class="form-control" name="website_logo_light" onchange="loadFileImageLogoLight(event)">
 												</div>
 											</div>
 										</div>
@@ -151,20 +140,15 @@
 										<div class="card-body text-center">
 											<div class="form-group">
 												<label for="website_title" class="required">Website Logo Small:</label>
-												<div class="">											
+												
+												<div class="">
 													@if(!empty($setting->website_logo_small))
-														<img src="{{ $setting->website_logo_small }}" alt="..." id="website_logo_output" class="img-thumbnail rounded mb-3"  onerror="this.src='{{ asset('assets/admin/img/logo-def.png') }}';" style="height: 60px;">
+														<img src="{{ url('/storage/logo/'.$setting->website_logo_small) }}" style="height: 100px" alt="..." id="website_logo_small_output" class="img-thumbnail rounded mb-3"  onerror="this.src='{{ asset('assets/admin/img/logo-sm-default.png') }}';">
 													@else
-														<img src="" alt="..." id="website_logo_small_output" class="img-thumbnail rounded mb-3" onerror="this.src='{{ asset('assets/admin/img/logo-sm-default.png') }}';" style="height: 60px;">
+													<img src="" style="height: 100px" alt="..." id="website_logo_small_output" class="img-thumbnail rounded mx-auto d-block mb-3" onerror="this.src='{{ asset('assets/admin/img/logo-sm-default.png') }}';">
 													@endif
-
-													<input type="text" hidden id="website_logo_small" class="form-control" name="website_logo_small">
-													<div class="" style="width: 100%;">
-														<button class="btn btn-secondary" type="button" id="website_logo_small_button_image">
-														<i data-feather="image" class="feather-icon"></i>
-														Change Small Logo Image
-														</button>
-													</div>
+													
+													<input type="file" accept="image/*"  class="form-control" name="website_logo_small" onchange="loadFileImageLogoSmall(event)">
 												</div>
 											</div>
 										</div>
@@ -178,20 +162,13 @@
 												<label for="website_title" class="required">Website Favicon:</label>
 
 												<div class="">
-											
 													@if(!empty($setting->website_favicon))
-														<img src="{{ $setting->website_favicon }}" alt="..." id="website_favicon_output" class="img-thumbnail rounded mb-3"  onerror="this.src='{{ asset('assets/admin/img/favicon-def.png') }}';">
+														<img src="{{ url('/storage/logo/'.$setting->website_favicon) }}" style="height: 100px" alt="..." id="website_favicon_output" class="img-thumbnail rounded mb-3"  onerror="this.src='{{ asset('assets/admin/img/favicon-def.png') }}';">
 													@else
-														<img src="" alt="..." id="website_favicon_output" class="img-thumbnail rounded mb-3" onerror="this.src='{{ asset('assets/admin/img/favicon-def.png') }}';">
+													<img src="" style="height: 50px" alt="..." id="website_favicon_output" class="img-thumbnail rounded mx-auto d-block mb-3" onerror="this.src='{{ asset('assets/admin/img/favicon-def.png') }}';">
 													@endif
-
-													<input type="text" hidden id="website_favicon" class="form-control" name="website_favicon">
-													<div class="" style="width: 100%;">
-														<button class="btn btn-secondary" type="button" id="website_favicon_button_image">
-														<i data-feather="image" class="feather-icon"></i>
-														Change Favicon Image
-														</button>
-													</div>
+													
+													<input type="file" accept="image/*"  class="form-control" name="website_favicon" onchange="loadFileImageFavicon(event)">
 												</div>
 											</div>
 										</div>
@@ -358,49 +335,23 @@
 	</form>
 @endsection
 
-
 @push('scripts')
 <script>
-	document.addEventListener("DOMContentLoaded", function() {
-
-		document.getElementById('website_logo_dark_button_image').addEventListener('click', (event) => {
-			event.preventDefault();
-			inputId = 'website_logo_dark';
-			output = 'website_logo_dark_output';
-			window.open('/file-manager/fm-button', 'fm', 'width=1400,height=800');
-		});
-
-		document.getElementById('website_logo_light_button_image').addEventListener('click', (event) => {
-			event.preventDefault();
-			inputId = 'website_logo_light';
-			output = 'website_logo_light_output';
-			window.open('/file-manager/fm-button', 'fm', 'width=1400,height=800');
-		});
-
-		document.getElementById('website_logo_small_button_image').addEventListener('click', (event) => {
-			event.preventDefault();
-			inputId = 'website_logo_small';
-			output = 'website_logo_small_output';
-			window.open('/file-manager/fm-button', 'fm', 'width=1400,height=800');
-		});
-
-		document.getElementById('website_favicon_button_image').addEventListener('click', (event) => {
-			event.preventDefault();
-			inputId = 'website_favicon';
-			output = 'website_favicon_output';
-			window.open('/file-manager/fm-button', 'fm', 'width=1400,height=800');
-		});
-
-	});
-
-	// input
-	let inputId = '';
-	let output = '';
-
-	// set file link
-	function fmSetLink($url) {
-	document.getElementById(inputId).value = $url;
-	document.getElementById(output).src = $url;
-	}
+	var loadFileImageLogoDark = function(event) {
+		var outputdark = document.getElementById('website_logo_dark_output');
+		outputdark.src = URL.createObjectURL(event.target.files[0]);
+	};
+	var loadFileImageLogoLight = function(event) {
+		var outputlight = document.getElementById('website_logo_light_output');
+		outputlight.src = URL.createObjectURL(event.target.files[0]);
+	};
+	var loadFileImageLogoSmall = function(event) {
+		var outputsmall = document.getElementById('website_logo_small_output');
+		outputsmall.src = URL.createObjectURL(event.target.files[0]);
+	};
+	var loadFileImageFavicon = function(event) {
+		var outputfavicon = document.getElementById('website_favicon_output');
+		outputfavicon.src = URL.createObjectURL(event.target.files[0]);
+	};
 </script>
 @endpush

@@ -52,23 +52,15 @@
 						<div class="col-md-4 col-sm-12" style="margin: auto;">
 							<div class="input-group mb-5">
 								@if(!empty($user->image))
-									<img src="{{ $user->image }}" alt="..." id="output" class="img-thumbnail rounded mx-auto d-block mb-3"  onerror="this.src='{{ asset('assets/admin/img/default-user.png') }}';">
+									<img src="{{ url('/storage/admin_profile/'.$user->image) }}" alt="..." id="output" class="img-thumbnail rounded mx-auto d-block mb-3"  onerror="this.src='{{ asset('assets/admin/img/default-user.png') }}';">
 								@else
-									<img src="" alt="..." id="output" class="img-thumbnail rounded mx-auto d-block mb-3" onerror="this.src='{{ asset('assets/admin/img/default-user.png') }}';">
+								<img src="" alt="..." id="output" class="img-thumbnail rounded mx-auto d-block mb-3" onerror="this.src='{{ asset('assets/admin/img/default-user.png') }}';">
 								@endif
-
-								<input type="text" hidden id="image1" class="form-control" name="image">
-								<div class="input-group-append" style="width: 100%;">
-									<button class="btn btn-secondary btn-lg btn-block" type="button" id="button-image">
-									<i data-feather="image" class="feather-icon"></i>
-									Change User's Image
-									</button>
-								</div>
-							</div>	
+								
+								<input type="file" accept="image/*" id="image1" class="form-control" name="image" onchange="loadFileImageFront(event)">
+							</div>
 						</div>
 					</div>
-
-
 					<div class="row">
 						<div class="col-md-4">
 							<div class="card">
@@ -172,28 +164,8 @@
 @push('scripts')
 <script>
 	var loadFileImageFront = function(event) {
-	var output = document.getElementById('output');
-	output.src = URL.createObjectURL(event.target.files[0]);
+		var output = document.getElementById('output');
+		output.src = URL.createObjectURL(event.target.files[0]);
 	};
-</script>
-
-<script>
-	document.addEventListener("DOMContentLoaded", function() {
-	document.getElementById('button-image').addEventListener('click', (event) => {
-		event.preventDefault();
-		inputId = 'image1';
-		window.open('/file-manager/fm-button', 'fm', 'width=1400,height=800');
-		});
-	});
-
-	// input
-	let inputId = '';
-	let output = 'output';
-
-	// set file link
-	function fmSetLink($url) {
-	document.getElementById(inputId).value = $url;
-	document.getElementById(output).src = $url;
-	}
 </script>
 @endpush

@@ -46,22 +46,26 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
-
-
-        // 'admin' => [
-        //     'driver' => 'session',
-        //     'provider' => 'users',
-        // ],
-
-        'patient' => [
+        'customer' => [
             'driver' => 'session',
-            'provider' => 'patients',
+            'provider' => 'customers',
         ],
-
-        'doctor' => [
+        'associate' => [
             'driver' => 'session',
-            'provider' => 'doctors',
+            'provider' => 'associates',
         ],
+        'employee' => [
+            'driver' => 'session',
+            'provider' => 'employees',
+        ],
+        'partneragent' => [
+            'driver' => 'session',
+            'provider' => 'partneragents',
+        ],
+        'hotelpartner' => [
+            'driver' => 'session',
+            'provider' => 'hotelpartners',
+        ]
     ],
 
     /*
@@ -86,21 +90,26 @@ return [
             'driver'    => 'eloquent',
             'model'     => App\Models\User::class,
         ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
-
-        'patients' => [
+        'customers' => [
             'driver'    => 'eloquent',
-            'model'     => App\Models\Patient::class,
+            'model'     => App\Models\Customer::class,
         ],
-
-        'doctors' => [
+        'associates' => [
             'driver'    => 'eloquent',
-            'model'     => App\Models\Doctor::class,
+            'model'     => App\Models\Customer::class,
         ],
+        'employees' => [
+            'driver'    => 'eloquent',
+            'model'     => App\Models\Customer::class,
+        ],
+        'partneragents' => [
+            'driver'    => 'eloquent',
+            'model'     => App\Models\Customer::class,
+        ],
+        'hotelpartners' => [
+            'driver'    => 'eloquent',
+            'model'     => App\Models\Customer::class,
+        ]
     ],
 
     /*
@@ -124,7 +133,7 @@ return [
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,
-        ],
+        ]
     ],
 
     /*

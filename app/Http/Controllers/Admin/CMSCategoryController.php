@@ -121,7 +121,7 @@ class CMSCategoryController extends Controller
 
         $this->validate($request, $rules, $messages);
 		$input = request()->all();
-
+         echo"<pre>";print_r($input);exit;
 		try {
 			$category 		= CmsCategory::create($input);
             Toastr::success('CMS Category created success');

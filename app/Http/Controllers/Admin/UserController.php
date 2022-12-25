@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use App\Models\User;
+use App\Models\Customer;
 use Illuminate\Support\Facades\DB;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Hash;
@@ -16,7 +17,7 @@ use Image;
 use Storage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
-
+use App\Models\FileManagement;
 class UserController extends Controller
 {
     function __construct()
@@ -31,6 +32,7 @@ class UserController extends Controller
         $user_list = Permission::get()->filter(function($item) {
             return $item->name == 'user-list';
         })->first();
+		//print_r($user_list);
         $user_create = Permission::get()->filter(function($item) {
             return $item->name == 'user-create';
         })->first();
@@ -106,7 +108,7 @@ class UserController extends Controller
                     if ($row->image == null or empty($row->image)) {
                     	$image = '<img src="/assets/admin/img/default-user.png" class="w-50 rounded-circle img-fluid img-thumbnail" style="max-width: 50px;">';
                     }else{
-                    	$image = '<img src="'.$row->image.'" class="w-50 rounded-circle img-fluid img-thumbnail" style="max-width: 60px; height: 45px;">';
+                    	$image = '<img src="'.url('/storage/admin_profile/'.$row->image).'" class="rounded-circle img-fluid img-thumbnail" style="width: 60px; height: 60px;">';
                     }
                     return $image;
                 })
@@ -131,7 +133,7 @@ class UserController extends Controller
 		$roles = Role::all();
 		return view('admin.users.create',compact('roles'));
 	}
-
+	
 	public function store(Request $request)
 	{
 		$rules = [
@@ -140,7 +142,7 @@ class UserController extends Controller
 			'password' 		=> 'required|same:confirm-password',
 			'roles' 		=> 'required',
 			'mobile' 		=> 'required|string|unique:users,mobile',
-			'image' 		=> 'nullable',
+			'image' 		=> 'required',
         ];
 
         $messages = [
@@ -153,11 +155,12 @@ class UserController extends Controller
             'roles.required'    	=> __('default.form.validation.roles.required'),
             'mobile.required'    	=> __('default.form.validation.mobile.required'),
         ];
-
+		
         $this->validate($request, $rules, $messages);
 		$input = request()->all();
 		$input['password'] = Hash::make($input['password']);
-
+		$input['image'] = FileManagement::upload_single_file($request,'image','admin_profile','yes','100',''); 
+		//echo"<pre>";print_r($input);exit;
 		try {
 			$user = User::create($input);
 			if($request->roles)
@@ -204,6 +207,12 @@ class UserController extends Controller
 
 		if (empty($input['image'])) {
 			$input['image'] = $user->image;
+		}else{
+			$image_path = public_path('storage/admin_profile/'. $user->image);
+			if(File::exists($image_path)){
+				File::delete($image_path);
+			}
+			$input['image'] = FileManagement::upload_single_file($request,'image','admin_profile','yes','100',''); 
 		}
 
 		if(!empty($input['password'])){
@@ -240,9 +249,9 @@ class UserController extends Controller
 		}else{
 			$getuser = User::find($id);
 			if(!empty($getuser->image)){
-				$image_path = 'storage/'.$getuser->image;
-				if(File::exists($image_path)) {
-				    File::delete($image_path);
+				$image_path = public_path('storage/admin_profile/'. $getuser->image);
+				if(File::exists($image_path)){
+					File::delete($image_path);
 				}
 			}
 			try {
