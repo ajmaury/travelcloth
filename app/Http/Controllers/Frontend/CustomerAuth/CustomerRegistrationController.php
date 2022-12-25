@@ -63,6 +63,7 @@ class CustomerRegistrationController extends Controller
                 unset($output['otp']);
                 $output['password'] = Hash::make($session_data['password']);
                 $output['account_type'] = 0;
+                $output['account_status'] = 1;
                 Customer::insert($output);
                 Session::forget('userdata');
                 return response()->json([

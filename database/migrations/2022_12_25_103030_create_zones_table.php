@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLogisticTable extends Migration
+class CreateZonesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class CreateLogisticTable extends Migration
      */
     public function up()
     {
-        Schema::create('logistic', function (Blueprint $table) {
+        Schema::create('zones', function (Blueprint $table) {
             $table->id();
+            $table->string('zone_name')->unique()->nullable();
+            $table->boolean('status')->default(0); //0-deactive,1-active
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ class CreateLogisticTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('logistic');
+        Schema::dropIfExists('zones');
     }
 }

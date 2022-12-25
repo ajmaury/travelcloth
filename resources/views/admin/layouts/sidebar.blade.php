@@ -103,7 +103,59 @@
                      </ul>
                  </li>
                  @endif
-
+                <!-- Logistic -->
+                @can('logistic-list')
+                <li class="{{ (request()->is('admin/logistic*')) ? 'active' : '' }}">
+                    <a class="sidebar-link" href="{{ route('logistic.index') }}" aria-expanded="false">
+                        <i class="fas fa-truck"></i>
+                        <span>
+                            Logistic
+                        </span>
+                    </a>
+                </li>
+                @endcan
+                <!-- /logistic -->
+                <!--location-->
+                @if(auth()->user()->can('state-list') || auth()->user()->can('zone-list') ||
+                 auth()->user()->can('city-list'))
+                 <li class="submenu">
+                     <a class="" href="javascript:void(0)" aria-expanded="false">
+                         <i class="fa fa-map"></i>
+                         <span class="hide-menu">Location </span>
+                         <span class="menu-arrow"></span>
+                     </a>
+ 
+                     <ul style="display: none;">
+                         @can('state-list')
+                         <li>
+                             <a href="{{ route('states.index') }}" title="State"
+                                 class="sidebar-link {{ (request()->is('admin/states*')) ? 'active' : '' }}">
+                                 <span class="hide-menu">State</span>
+                             </a>
+                         </li>
+                         @endcan
+ 
+                         @can('zone-list')
+                         <li>
+                             <a href="{{ route('zones.index') }}" title="Zone"
+                                 class="sidebar-link {{ (request()->is('admin/zones*')) ? 'active' : '' }}">
+                                 <span class="hide-menu">Zone</span>
+                             </a>
+                         </li>
+                         @endcan
+ 
+                         @can('city-list')
+                         <li>
+                             <a href="{{ route('citys.index') }}" title="City"
+                                 class="sidebar-link {{ (request()->is('admin/citys*')) ? 'active' : '' }}">
+                                 <span class="hide-menu">City</span>
+                             </a>
+                         </li>
+                         @endcan
+                     </ul>
+                 </li>
+                 @endif
+                <!--/location-->
                 <!-- Pricing -->
                 <li class="{{ (request()->is('admin/dashboard*')) ? 'active1' : '' }}">
                     <a class="sidebar-link" href="#" aria-expanded="false">

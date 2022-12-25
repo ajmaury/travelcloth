@@ -22,6 +22,10 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\UploadFileController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\LogisticController;
+use App\Http\Controllers\Admin\StateController;
+use App\Http\Controllers\Admin\ZoneController;
+use App\Http\Controllers\Admin\CityController;
 use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\EmployeeListController;
 use App\Http\Controllers\Admin\AssociateListController;
@@ -182,6 +186,44 @@ Route::prefix('admin')->group(function () {
 			Route::post('/update/{id}', 	[UserController::class, 'update'])->name('users.update');
 			Route::post('/destroy', 		[UserController::class, 'destroy'])->name('users.destroy');
 			Route::get('/status_update', 	[UserController::class, 'status_update'])->name('users.status_update');
+		});
+		// Logistic
+		Route::prefix('logistic')->group(function () {
+			Route::get('/index', 			[LogisticController::class, 'index'])->name('logistic.index');
+			Route::get('/create', 			[LogisticController::class, 'create'])->name('logistic.create');
+			Route::post('/store', 			[LogisticController::class, 'store'])->name('logistic.store');
+			Route::get('/edit/{id}', 		[LogisticController::class, 'edit'])->name('logistic.edit');
+			Route::post('/update/{id}', 	[LogisticController::class, 'update'])->name('logistic.update');
+			Route::post('/destroy', 		[LogisticController::class, 'destroy'])->name('logistic.destroy');
+			Route::get('/status_update', 	[LogisticController::class, 'status_update'])->name('logistic.status_update');
+		});
+		// State
+		Route::prefix('states')->group(function () {
+			Route::get('/index', 			[StateController::class, 'index'])->name('states.index');
+			Route::get('/create', 			[StateController::class, 'create'])->name('states.create');
+			Route::post('/store', 			[StateController::class, 'store'])->name('states.store');
+			Route::get('/edit/{id}', 		[StateController::class, 'edit'])->name('states.edit');
+			Route::post('/update/{id}', 	[StateController::class, 'update'])->name('states.update');
+			Route::post('/destroy', 		[StateController::class, 'destroy'])->name('states.destroy');
+		});
+		// ZOne
+		Route::prefix('zones')->group(function () {
+			Route::get('/index', 			[ZoneController::class, 'index'])->name('zones.index');
+			Route::get('/create', 			[ZoneController::class, 'create'])->name('zones.create');
+			Route::post('/store', 			[ZoneController::class, 'store'])->name('zones.store');
+			Route::get('/edit/{id}', 		[ZoneController::class, 'edit'])->name('zones.edit');
+			Route::post('/update/{id}', 	[ZoneController::class, 'update'])->name('zones.update');
+			Route::post('/destroy', 		[ZoneController::class, 'destroy'])->name('zones.destroy');
+		});
+		//city
+		Route::prefix('citys')->group(function () {
+			Route::get('/index', 			[CityController::class, 'index'])->name('citys.index');
+			Route::get('/create', 			[CityController::class, 'create'])->name('citys.create');
+			Route::post('/store', 			[CityController::class, 'store'])->name('citys.store');
+			Route::get('/edit/{id}', 		[CityController::class, 'edit'])->name('citys.edit');
+			Route::post('/update/{id}', 	[CityController::class, 'update'])->name('citys.update');
+			Route::post('/destroy', 		[CityController::class, 'destroy'])->name('citys.destroy');
+			Route::get('/status_update', 	[CityController::class, 'status_update'])->name('citys.status_update');
 		});
 		//customer
 		Route::prefix('customers')->group(function () {
