@@ -54,6 +54,21 @@ class Kernel extends HttpKernel
      */
     protected $routeMiddleware = [
         'auth'              => \App\Http\Middleware\Authenticate::class,
+        //customer
+        'customer.auth'     => \App\Http\Middleware\CustomerAuthenticate::class,
+        'customer.guest'    => \App\Http\Middleware\CustomerRedirectIfAuthenticated::class,
+        //Employee
+        'employee.auth'     => \App\Http\Middleware\EmployeeAuthenticate::class,
+        'employee.guest'    => \App\Http\Middleware\EmployeeRedirectIfAuthenticated::class,
+        //Partner Agent
+        'partneragent.auth'     => \App\Http\Middleware\PartnerAgentAuthenticate::class,
+        'partneragent.guest'    => \App\Http\Middleware\PartnerAgentRedirectIfAuthenticated::class,
+        //Partner Agent
+        'hotelpartner.auth'     => \App\Http\Middleware\HotelPartnerAuthenticate::class,
+        'hotelpartner.guest'    => \App\Http\Middleware\HotelPartnerRedirectIfAuthenticated::class,
+        //Associate
+        'associate.auth'     => \App\Http\Middleware\AssociateAuthenticate::class,
+        'associate.guest'    => \App\Http\Middleware\AssociateRedirectIfAuthenticated::class,
         'auth.basic'        => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'cache.headers'     => \Illuminate\Http\Middleware\SetCacheHeaders::class,
         'can'               => \Illuminate\Auth\Middleware\Authorize::class,

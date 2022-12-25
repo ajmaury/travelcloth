@@ -7,7 +7,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class RedirectIfAuthenticated
+class HotelPartnerRedirectIfAuthenticated
 {
     /**
      * Handle an incoming request.
@@ -18,13 +18,9 @@ class RedirectIfAuthenticated
      * @return mixed
      */
     public function handle(Request $request, Closure $next, ...$guards)
-    {
-        $guards = empty($guards) ? [null] : $guards;
-
-        foreach ($guards as $guard) {
-            if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
-            }
+    {       
+        if (Auth::guard('hotelpartner')->check()) {
+            return redirect()->route('hotelpartner.my_account');
         }
         return $next($request);
     }

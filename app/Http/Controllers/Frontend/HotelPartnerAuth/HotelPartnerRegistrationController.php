@@ -1,5 +1,5 @@
 <?php
-namespace App\Http\Controllers\Frontend;
+namespace App\Http\Controllers\Frontend\HotelPartnerAuth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Customer;
@@ -8,28 +8,18 @@ use Illuminate\Support\Facades\Hash;
 use Brian2694\Toastr\Facades\Toastr;
 use Session, Validator, Auth;
 
-class CustomerControler extends Controller
+class HotelPartnerRegistrationController extends Controller
 {
-    public function __construct()
-    {
-        //$this->middleware('guest')->except('logout');
-        //$this->middleware('web');
-    }
-
     public function index()
     {
-        return view('frontend.customer.signup');
-    }
-    public function sign_in()
-    {
-        //dd(Auth::guard('customer')->check());
-        return view('frontend.customer.signin');
-    }
+        return view('frontend.hotelpartner.signup');
+    }   
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(),[
             'fname' => 'required|max:50',
             'lname' => 'required|max:50',
+            'hotelName' => 'required',
             'email' => 'required|email|unique:customers',
             'mobile' => 'required|numeric|unique:customers',
             'password' => 'required|min:6|max:50', 
@@ -41,13 +31,12 @@ class CustomerControler extends Controller
                 'error' => $validator->errors()
             ]);
         }else{
-            
             $request['otp'] = mt_rand(1000,9999);
             Session::put('userdata', $request->input());
             $otp=Session::get('userdata')['otp'];
             $sms = new smsApi();
             $sms->registerApi($request->mobile,$otp);
-            $otp_page = view('frontend.customer.register_otp')->render();
+            $otp_page = view('frontend.hotelpartner.register_otp')->render();
             return response()->json([
                 'status' => 200,
                 'message' => $otp_page
@@ -68,12 +57,12 @@ class CustomerControler extends Controller
         }else{
             $session_data=Session::get('userdata');
             if($request->otp == $session_data['otp']){
-                $data = ['accountId'=>'TCC'.mt_rand(1000,9999)];
+                $data = ['accountId'=>'TCH'.mt_rand(1000,9999)];
                 $output = array_merge($session_data,$data);
                 unset($output['_token']);
                 unset($output['otp']);
                 $output['password'] = Hash::make($session_data['password']);
-                $output['account_type'] = 0;
+                $output['account_type'] = 3;
                 Customer::insert($output);
                 Session::forget('userdata');
                 return response()->json([
@@ -105,54 +94,5 @@ class CustomerControler extends Controller
                 'error' => ['otp'=>'OTP not Sent']
             ]);
         }
-    }
-    public function my_account()
-    {
-        return view('frontend.customer.my_account');
-    }
-    public function order()
-    {
-        return view('frontend.customer.order');
-    }
-    public function quote()
-    {
-        return view('frontend.customer.quote');
-    }
-    public function profile()
-    {
-        return view('frontend.customer.profile');
-    }
-    public function login_go(Request $request)
-    {
-        $validator = Validator::make($request->all(),[
-            'email' => 'required|email',
-            'password' => 'required|min:6|max:50', 
-            ]
-        );
-        if($validator->fails()){
-            Toastr::error($validator->errors());
-            return redirect()->back();
-        }else{
-            if (Auth::guard('customer')->attempt(['email' => $request->email, 'password' => $request->password])) {
-                //dd(Auth::guard('customer')->user()->account_status);
-               
-                if (Auth::guard('customer')->user()->account_status == 1) {
-                    Toastr::success('Welcome !');
-                    return redirect()->route('customer.my_account');
-                }else{
-                    Auth::guard('customer')->logout();
-                    Toastr::error('Your account is Deactivated by Admin!');
-                    return redirect()->back();
-                }
-            }else{
-                Toastr::error('Credentials Missmatch!');
-            return redirect()->back();
-            }
-        }
-        
-    }
-    public function logout(Request $request) {
-        Auth::guard('customer')->logout();
-        return redirect('sign-in');
-    }
+    }    
 }

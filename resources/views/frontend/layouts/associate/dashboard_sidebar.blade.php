@@ -13,7 +13,7 @@
         <div class="sidebar__button"> <a href="{{ route('associate.order') }}" class="d-flex items-center text-15 lh-1 fw-500"> <img src="{{ url('assets/fronted/img/dashboard/sidebar/booking.svg') }}" alt="image" class="mr-15"> My Orders </a> </div>
       </div>
       <div class="sidebar__item">
-        <div class="sidebar__button "> <a href="#" class="d-flex items-center text-15 lh-1 fw-500"> <img src="{{ url('assets/fronted/img/dashboard/sidebar/log-out.svg') }}" alt="image" class="mr-15"> Logout </a> </div>
+        <div class="sidebar__button "> <a href="{{ route('associate.logout') }}" class="d-flex items-center text-15 lh-1 fw-500"> <img src="{{ url('assets/fronted/img/dashboard/sidebar/log-out.svg') }}" alt="image" class="mr-15"> Logout </a> </div>
       </div>
     </div>
   </div>

@@ -13,18 +13,17 @@ Sign In
       <div class="col-xl-6 col-lg-7 col-md-9">
         <div class="px-50 py-50 sm:px-20 sm:py-20 bg-white shadow-4 rounded-4">
           <form action="{{ route('customer.login_go') }}" method="POST">
-            @csrf
+            @csrf()
             <div class="row y-gap-20">
               <div class="col-12">
                 <h1 class="text-22 fw-500">Welcome back</h1>
                 <p class="mt-10">Don't have an account yet? <a href="{{ route('customer.sign_up') }}"
-                    class="text-blue-1">Sign up
-                    for free</a></p>
+                    class="text-blue-1">Sign up for free</a></p>
               </div>
               <div class="col-12">
                 <div class="form-input ">
-                  <input type="text" name="mobile">
-                  <label class="lh-1 text-14 text-light-1">Mobile Number</label>
+                  <input type="email" name="email">
+                  <label class="lh-1 text-14 text-light-1">Email ID</label>
                 </div>
               </div>
               <div class="col-12">
@@ -34,7 +33,7 @@ Sign In
                 </div>
               </div>
               <div class="col-12">
-                <a href="forgot.html" class="text-14 fw-500 text-blue-1 underline">Forgot your password?</a>
+                <a href="#" class="text-14 fw-500 text-blue-1 underline">Forgot your password?</a>
               </div>
               <div class="col-12">
                 <input type="submit" class="button py-20 -dark-1 bg-blue-1 text-white" value="Submit">

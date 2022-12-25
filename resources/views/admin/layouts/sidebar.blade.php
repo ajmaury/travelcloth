@@ -44,47 +44,65 @@
                 @endif
                  /CMS -->
 
-                <!-- customer -->
-                <li class="submenu">
-                    <a class="" href="javascript:void(0)" aria-expanded="false">
-                        <i class="fa fa-users pr20"></i>
-                        <span class="hide-menu"> User </span>
-                        <span class="menu-arrow"></span>
-                    </a>
-
-                    <ul style="display: none;">
-                        
-                            <li>
-                                <a href="#" title="Customer" class="sidebar-link {{ (request()->is('admin/user*')) ? 'active' : '' }}">
-                                    <span class="hide-menu">Customer</span>
-                                </a>
-                            </li>
-
-                        
-                            <li>
-                                <a href="#" title="Partner Agent" class="sidebar-link {{ (request()->is('admin/roles*')) ? 'active' : '' }}">
-                                    <span class="hide-menu">Partner Agent</span>
-                                </a>
-                            </li>
-                       
-
-                       
-                            <li>
-                                <a href="#" title="Hotel" class="sidebar-link {{ (request()->is('admin/permissions*')) ? 'active' : '' }}">
-                                    <span class="hide-menu">Hotel</span>
-                                </a>
-                            </li>
-                        
-
-                        
-                            <li>
-                                <a href="#" title="Logistics" class="sidebar-link {{ (request()->is('admin/setting/useractivity*')) ? 'active' : '' }}">
-                                    <span class="hide-menu">Logistics</span>
-                                </a>
-                            </li>
-                    </ul>
-                </li>
-                <!-- /customer -->
+                 @if(auth()->user()->can('customer-list') || auth()->user()->can('employee-list') ||
+                 auth()->user()->can('associate-list') || auth()->user()->can('partneragent-list') || 
+                 auth()->user()->can('hotelpartner-list'))
+                 <li class="submenu">
+                     <a class="" href="javascript:void(0)" aria-expanded="false">
+                         <i class="fa fa-users"></i>
+                         <span class="hide-menu">Users </span>
+                         <span class="menu-arrow"></span>
+                     </a>
+ 
+                     <ul style="display: none;">
+                         @can('customer-list')
+                         <li>
+                             <a href="{{ route('customer.index') }}" title="Customer Master"
+                                 class="sidebar-link {{ (request()->is('admin/customer*')) ? 'active' : '' }}">
+                                 <span class="hide-menu">Customer Master</span>
+                             </a>
+                         </li>
+                         @endcan
+ 
+                         @can('employee-list')
+                         <li>
+                             <a href="{{ route('employee.index') }}" title="Employee Master"
+                                 class="sidebar-link {{ (request()->is('admin/employee*')) ? 'active' : '' }}">
+                                 <span class="hide-menu">Employee Master</span>
+                             </a>
+                         </li>
+                         @endcan
+ 
+                         @can('associate-list')
+                         <li>
+                             <a href="{{ route('associate.index') }}" title="Associate Master"
+                                 class="sidebar-link {{ (request()->is('admin/associate*')) ? 'active' : '' }}">
+                                 <span class="hide-menu">Associate Master</span>
+                             </a>
+                         </li>
+                         @endcan
+ 
+                         @can('partneragent-list')
+                         <li>
+                             <a href="{{ route('partneragent.index') }}" title="Partner Agent Master"
+                                 class="sidebar-link {{ (request()->is('admin/partneragent*')) ? 'active' : '' }}">
+                                 <span class="hide-menu">Partner Agent Master</span>
+                             </a>
+                         </li>
+                         @endcan
+ 
+                         @can('hotelpartner-list')
+                         <li>
+                             <a href="{{ route('hotelpartner.index') }}" title="Hotel Partner Master"
+                                 class="sidebar-link {{ (request()->is('admin/hotelpartner*')) ? 'active' : '' }}">
+                                 <span class="hide-menu">Hotel Partner Master</span>
+                             </a>
+                         </li>
+                         @endcan
+ 
+                     </ul>
+                 </li>
+                 @endif
 
                 <!-- Pricing -->
                 <li class="{{ (request()->is('admin/dashboard*')) ? 'active1' : '' }}">
@@ -126,20 +144,22 @@
 
                     <ul style="display: none;">
                         <li>
-                            <a href="#" title="Website Setting" class="sidebar-link {{ (request()->is('admin/setting/website-setting*')) ? 'active' : '' }}">
+                            <a href="#" title="Website Setting"
+                                class="sidebar-link {{ (request()->is('admin/setting/website-setting*')) ? 'active' : '' }}">
                                 <span class="hide-menu">Customer</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#" title="File Manager" class="sidebar-link {{ (request()->is('admin/setting/file-manager*')) ? 'active' : '' }}">
+                            <a href="#" title="File Manager"
+                                class="sidebar-link {{ (request()->is('admin/setting/file-manager*')) ? 'active' : '' }}">
                                 <span class="hide-menu">Agent</span>
                             </a>
                         </li>
                     </ul>
                 </li>
                 <!-- /Coupon -->
-                 <!-- Reports -->
-                 <li class="{{ (request()->is('admin/dashboard*')) ? 'active1' : '' }}">
+                <!-- Reports -->
+                <li class="{{ (request()->is('admin/dashboard*')) ? 'active1' : '' }}">
                     <a class="sidebar-link" href="#" aria-expanded="false">
                         <i class="fa fa-file"></i>
                         <span>
@@ -148,8 +168,8 @@
                     </a>
                 </li>
                 <!-- /Reports -->
-                 <!-- Payout -->
-                 <li class="{{ (request()->is('admin/dashboard*')) ? 'active1' : '' }}">
+                <!-- Payout -->
+                <li class="{{ (request()->is('admin/dashboard*')) ? 'active1' : '' }}">
                     <a class="sidebar-link" href="#" aria-expanded="false">
                         <i class="fa fa-credit-card"></i>
                         <span>
@@ -159,48 +179,53 @@
                 </li>
                 <!-- /Payout -->
                 <!-- Users -->
-                @if(auth()->user()->can('user-list') || auth()->user()->can('role-list') || auth()->user()->can('permission-list') || auth()->user()->can('user-activity'))
-                    <li class="submenu">
-                        <a class="" href="javascript:void(0)" aria-expanded="false">
-                            <i class="fa fa-users"></i>
-                            <span class="hide-menu">Staff </span>
-                            <span class="menu-arrow"></span>
-                        </a>
+                @if(auth()->user()->can('user-list') || auth()->user()->can('role-list') ||
+                auth()->user()->can('permission-list') || auth()->user()->can('user-activity'))
+                <li class="submenu">
+                    <a class="" href="javascript:void(0)" aria-expanded="false">
+                        <i class="fa fa-users"></i>
+                        <span class="hide-menu">Staff </span>
+                        <span class="menu-arrow"></span>
+                    </a>
 
-                        <ul style="display: none;">
-                            @can('user-list')
-                                <li>
-                                    <a href="{{ route('users.index') }}" title="User" class="sidebar-link {{ (request()->is('admin/user*')) ? 'active' : '' }}">
-                                        <span class="hide-menu">Staff</span>
-                                    </a>
-                                </li>
-                            @endcan
+                    <ul style="display: none;">
+                        @can('user-list')
+                        <li>
+                            <a href="{{ route('users.index') }}" title="User"
+                                class="sidebar-link {{ (request()->is('admin/user*')) ? 'active' : '' }}">
+                                <span class="hide-menu">Staff</span>
+                            </a>
+                        </li>
+                        @endcan
 
-                            @can('role-list')
-                                <li>
-                                    <a href="{{ route('roles.index') }}" title="Role" class="sidebar-link {{ (request()->is('admin/roles*')) ? 'active' : '' }}">
-                                        <span class="hide-menu">Role</span>
-                                    </a>
-                                </li>
-                            @endcan
+                        @can('role-list')
+                        <li>
+                            <a href="{{ route('roles.index') }}" title="Role"
+                                class="sidebar-link {{ (request()->is('admin/roles*')) ? 'active' : '' }}">
+                                <span class="hide-menu">Role</span>
+                            </a>
+                        </li>
+                        @endcan
 
-                            @can('permission-list')
-                                <li>
-                                    <a href="{{ route('permissions.index') }}" title="Permission" class="sidebar-link {{ (request()->is('admin/permissions*')) ? 'active' : '' }}">
-                                        <span class="hide-menu">Permission</span>
-                                    </a>
-                                </li>
-                            @endcan
+                        @can('permission-list')
+                        <li>
+                            <a href="{{ route('permissions.index') }}" title="Permission"
+                                class="sidebar-link {{ (request()->is('admin/permissions*')) ? 'active' : '' }}">
+                                <span class="hide-menu">Permission</span>
+                            </a>
+                        </li>
+                        @endcan
 
-                            @can('user-activity')
-                                <li>
-                                    <a href="/admin/user-activity" title="User Activity" class="sidebar-link {{ (request()->is('admin/setting/useractivity*')) ? 'active' : '' }}">
-                                        <span class="hide-menu">User Activity</span>
-                                    </a>
-                                </li>
-                            @endcan
-                        </ul>
-                    </li>
+                        @can('user-activity')
+                        <li>
+                            <a href="/admin/user-activity" title="User Activity"
+                                class="sidebar-link {{ (request()->is('admin/setting/useractivity*')) ? 'active' : '' }}">
+                                <span class="hide-menu">User Activity</span>
+                            </a>
+                        </li>
+                        @endcan
+                    </ul>
+                </li>
                 @endif
                 <!-- /Users -->
                 <!-- Site Management -->
@@ -213,42 +238,46 @@
 
                     <ul style="display: none;">
                         <li>
-                            <a href="#" title="Website Setting" class="sidebar-link {{ (request()->is('admin/setting/website-setting*')) ? 'active' : '' }}">
+                            <a href="#" title="Website Setting"
+                                class="sidebar-link {{ (request()->is('admin/setting/website-setting*')) ? 'active' : '' }}">
                                 <span class="hide-menu">Youtube Video</span>
                             </a>
                         </li>
-                        
+
                     </ul>
                 </li>
                 <!-- /Site management -->
                 <!-- Settings -->
-                @if(auth()->user()->can('file-manager') || auth()->user()->can('websetting-edit') || auth()->user()->can('log-view'))
-                    <li class="submenu">
-                        <a class="" href="javascript:void(0)" aria-expanded="false">
-                            <i class="fa fa-cog"></i>
-                            <span class="hide-menu">Setting</span>
-                            <span class="menu-arrow"></span>
-                        </a>
+                @if(auth()->user()->can('file-manager') || auth()->user()->can('websetting-edit') ||
+                auth()->user()->can('log-view'))
+                <li class="submenu">
+                    <a class="" href="javascript:void(0)" aria-expanded="false">
+                        <i class="fa fa-cog"></i>
+                        <span class="hide-menu">Setting</span>
+                        <span class="menu-arrow"></span>
+                    </a>
 
-                        <ul style="display: none;">
-                           
-                            @can('websetting-edit')
-                                <li>
-                                    <a href="{{route('website-setting.edit')}}" title="Website Setting" class="sidebar-link {{ (request()->is('admin/setting/website-setting*')) ? 'active' : '' }}">
-                                        <span class="hide-menu">Website Setting</span>
-                                    </a>
-                                </li>
-                            @endcan
+                    <ul style="display: none;">
 
-                            @can('log-view')
-                                <li>
-                                    <a href="/admin/log-reader" title="Read Logs" class="sidebar-link {{ (request()->is('admin/setting/log*')) ? 'active' : '' }}">
-                                        <span class="hide-menu">Read Logs</span>
-                                    </a>
-                                </li>
-                            @endcan
-                        </ul>
-                    </li>
+                        @can('websetting-edit')
+                        <li>
+                            <a href="{{route('website-setting.edit')}}" title="Website Setting"
+                                class="sidebar-link {{ (request()->is('admin/setting/website-setting*')) ? 'active' : '' }}">
+                                <span class="hide-menu">Website Setting</span>
+                            </a>
+                        </li>
+                        @endcan
+
+                        @can('log-view')
+                        <li>
+                            <a href="/admin/log-reader" title="Read Logs"
+                                class="sidebar-link {{ (request()->is('admin/setting/log*')) ? 'active' : '' }}">
+                                <span class="hide-menu">Read Logs</span>
+                            </a>
+                        </li>
+                        @endcan
+                    </ul>
+                </li>
                 @endif
                 <!-- /Settings -->
 
